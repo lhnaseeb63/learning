@@ -63,9 +63,9 @@
                 <label for="message">Message:</label> <textarea name="message" id="message" cols="30" rows="5"></textarea>
             </div>
 
-            <div>
+            <!-- <div>
                 <label for="subject">Subject</label>
-                
+
                 <select name="" id="subject">
 
                    <optgroup label="Product Issues">
@@ -82,6 +82,18 @@
                     </optgroup>
                     
                 </select>
+            </div> -->
+            <div>
+                <label for="subject">Subject:</label>
+                <input type="text" list="subjects" id="subject" placeholder="Enter your subject">
+                <datalist id="subjects">
+                    <option value="Returns">
+                    <option value="Faulty item">
+                    <option value="Delivery info">
+                    <option value="Order tracking">
+                    <option value="Advice">
+                    <option value="Other">
+                </datalist>
             </div>
 
             <div>
@@ -109,6 +121,10 @@
 
                 <!-- The name attribute "groups" elements together -->
             </div>
+
+            <input type="submit">
+            <input type="reset">
+            <!-- <button type="submit">Submit</button> -->
         </form>
 
     </main>
@@ -126,3 +142,10 @@
 </body>
 
 </html>
+
+
+<!-- 
+     caniuse.com is a useful tool to see what browsers support what html features
+  -->
+
+  <!-- can hightlight then use ctrl + / to turn into a comment -->
