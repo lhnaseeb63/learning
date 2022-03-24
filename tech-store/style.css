@@ -15,3 +15,18 @@ header, footer {
 }
 
 /* <!-- comma makes it apply to multiple elements --> */
+
+#name {
+    background: red;
+}
+
+.product {
+    border: 1px solid grey;
+    width: 200px;
+   
+}
+
+img {
+    /* no larger than the container it's in */
+    max-width: 100%;  
+}
