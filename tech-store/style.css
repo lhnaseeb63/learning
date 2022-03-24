@@ -1,0 +1,17 @@
+html {
+    background-color: #f7f7f7;
+}
+
+body{
+    font-family: 'Barlow', sans-serif;
+    background-color: white;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+header, footer {
+   background: #333a40; 
+   color: white;
+}
+
+/* <!-- comma makes it apply to multiple elements --> */
