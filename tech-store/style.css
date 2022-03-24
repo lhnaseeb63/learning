@@ -16,17 +16,72 @@ header, footer {
 
 /* <!-- comma makes it apply to multiple elements --> */
 
+ul {
+    margin: 0;
+    padding: 0;
+    /* browsers sometimes have default values for 
+    margin and padding and we want to reset this 
+    to 0 */
+
+    /* can paste this into our css to completely reset the css 
+    https://meyerweb.com/eric/tools/css/reset/ */
+}
+
+li {
+    list-style: none;
+    line-height: 30px;
+}
+
+/* inside makes it so that the bullets are included in the 
+body/document flow instead of protruding.  
+
+
+list-style: square inside;
+
+   can also use url() to link to an image to use as a bullet
+*/
+
+header li {
+    display: inline;
+}
+
+header h1, nav{
+    display: inline-block;
+}
+
+main {
+    width: 680px;
+    display: inline-block;
+    padding: 10px;
+}
+
+aside {
+    width: 270px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+
 #name {
     background: red;
 }
 
 .product {
+    box-sizing: border-box;
     border: 1px solid grey;
     width: 200px;
-   
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.button {
+    padding: 10px;
+    display: inline-block;
 }
 
 img {
     /* no larger than the container it's in */
     max-width: 100%;  
 }
+
