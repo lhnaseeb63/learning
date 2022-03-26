@@ -107,3 +107,22 @@ The first instance, last instance, etc. It's pretty neat! */
     background: #0e69e9;
     color: white;
 }
+
+/* Product Detail Page */
+.product-detail {
+    width: 660px;
+}
+
+.product-detail img {
+    max-width: 50%;
+    float: left;
+}
+
+/* when we use a float the height of the elements is not taken into 
+account which can cause some weirdness. To circumvent this we can 
+try using overflow: auto;  */
+
+/* with floats and non floated elements we can say that 
+we dont want the element to be on the same height/line 
+as a floated element on the left, right, or both using 
+clear: left, clear:right, clear:both; */
