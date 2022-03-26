@@ -7,6 +7,7 @@ body{
     background-color: white;
     max-width: 1000px;
     margin: 0 auto;
+    color: rgb(49, 46, 46)
 }
 
 header, footer {
@@ -40,6 +41,15 @@ list-style: square inside;
 
    can also use url() to link to an image to use as a bullet
 */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #0e69e9;
+}
 
 header li {
     display: inline;
@@ -85,3 +95,15 @@ img {
     max-width: 100%;  
 }
 
+/* 
+p:first-of-type{
+    color: red;
+}
+
+pseudo selectors let us select target elements based on their state.
+The first instance, last instance, etc. It's pretty neat! */
+
+.button:last-of-type {
+    background: #0e69e9;
+    color: white;
+}
