@@ -126,3 +126,13 @@ try using overflow: auto;  */
 we dont want the element to be on the same height/line 
 as a floated element on the left, right, or both using 
 clear: left, clear:right, clear:both; */
+
+#position {
+    position: relative;
+    top: 10px;
+}
+
+/* relative relative to where it would normally be positioned in the document
+absolute from the top of the page
+fixed stays in position even if we scroll 
+sticky also stays in place. Good for side bars */
