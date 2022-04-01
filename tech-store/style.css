@@ -136,3 +136,27 @@ clear: left, clear:right, clear:both; */
 absolute from the top of the page
 fixed stays in position even if we scroll 
 sticky also stays in place. Good for side bars */
+
+/* Contact Us Page */
+
+form {
+    padding: 10px;
+    margin: 10px 0;
+    width: 600px;
+}
+
+form > div {
+    /* all div tags that are a direct child of form */
+    margin: 10px 0;
+}
+
+.inline label {
+     width: 100px; /*cant set the width of inline elements */
+     display: inline-block;
+}
+
+input[type="text"], input[type="email"], textarea {
+    /* overriding textarea columns and rows */
+    padding: 10px;
+    width: 400px;
+}
