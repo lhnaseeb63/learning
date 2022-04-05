@@ -13,6 +13,7 @@ body{
 header, footer {
    background: #333a40; 
    color: white;
+   padding: 20px 10px;
 }
 
 /* <!-- comma makes it apply to multiple elements --> */
@@ -59,6 +60,10 @@ header h1, nav{
     display: inline-block;
 }
 
+header h1 {
+    width: 65%;
+}
+
 main {
     width: 680px;
     display: inline-block;
@@ -83,6 +88,7 @@ aside {
     margin: 5px;
     padding: 5px;
     display: inline-block;
+    text-align: center;
 }
 
 .button {
@@ -108,7 +114,7 @@ The first instance, last instance, etc. It's pretty neat! */
     color: white;
 }
 
-/* Product Detail Page */
+/* Product Detail Page ---------------------------------- */
 .product-detail {
     width: 660px;
 }
@@ -116,6 +122,28 @@ The first instance, last instance, etc. It's pretty neat! */
 .product-detail img {
     max-width: 50%;
     float: left;
+}
+
+table {
+    width: 400px;
+    text-align: left;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+caption {
+    font-weight: bold ;
+    font-style: italic;
+    border-bottom: 1px dotted;
+    padding: 10px;
+}
+
+th, td {
+    padding: 10px;
+}
+
+tr:hover {
+    background: #f5f5f5;
 }
 
 /* when we use a float the height of the elements is not taken into 
@@ -137,7 +165,7 @@ absolute from the top of the page
 fixed stays in position even if we scroll 
 sticky also stays in place. Good for side bars */
 
-/* Contact Us Page */
+/* Contact Us Page -----------------------------------------------*/
 
 form {
     padding: 10px;
