@@ -1,0 +1,25 @@
+<!-- This is a test to see how we can better optimize images in the browser.
+Using the appropriately sized image for the screen size to lighten the load on the
+network and to ensure quality.
+We use media tags to check browser size and provide the correct image size using 
+the source tag.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Element</title>
+</head>
+<body>
+    <!-- the img tag is the fallback. If the first two source conditions aren't
+    met the browser resorts to the img src.  -->
+    <picture>
+        <source srcset="images/pizza-1000.jpg" media="(min-width: 1000px)">
+        <source srcset="images/pizza-600.jpg" media="(min-width: 600px)">
+        <img src="images/pizza-300.jpg" alt="smallest pizza 300px">
+    </picture>
+
+
+</body>
+</html>
