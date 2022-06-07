@@ -4,6 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- To allow for multiple selections without shift or control -->
+    <!-- https://www.youtube.com/watch?v=AyztNgccjJ8 -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+   
+    <!-- To allow for multiple selections without shift or control 
+      add these in the select tag to get it to work: class="select-toggle" multiple="multiple"
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('.select-toggle').each(function(){    
+    var select = $(this), values = {};    
+    $('option',select).each(function(i, option){
+        values[option.value] = option.selected;        
+    }).click(function(event){        
+        values[this.value] = !values[this.value];
+        $('option',select).each(function(i, option){            
+            option.selected = values[option.value];        
+        });    
+    });
+});
+});
+</script>
+-->
+
     <title>The Second Tech Store</title>
   </head>
   <body>
@@ -16,6 +43,7 @@
           <li><a href="contact.html">contact us</a></li>
         </ul>
       </nav>
+      <input type="search" placeholder="search...">
     </header>
 
     <aside>
@@ -52,6 +80,50 @@
         <div> <label for="name">Name:</label><input type="text" placeholder="Enter your name" id="name" name="name"></div>
         <div><label for="email">Email:</label>  <input type="text" placeholder="Enter your email" id="email" name="email"></div>
         <div><label for="message">Message:</label>  <textarea id="message" name="message" id="" cols="30" rows="10"></textarea></div>
+        
+        <!-- <div>
+          <label for="select_test">Multi-select Test:</label>
+          <select name="" id="select_test" class="selectpicker" multiple>
+            <option value="returns">Returns</option>
+            <option value="faulty_item">Faulty Item</option>
+            <option value="delivery">Delivery Info</option>
+            <option value="order_tracking">Order Tracking</option>
+            <option value="advice">Advice</option>
+            <option value="other">other</option>
+          </select>
+        </div> -->
+
+        <!-- <div>
+          <label for="subject">Subject:</label>
+          <select name="" id="subject">
+            <optgroup label="Product Issues">
+              <option value="returns">Returns</option>
+              <option value="faulty_item">Faulty Item</option>
+            </optgroup>
+            <optgroup label="Delivery">
+              <option value="delivery">Delivery Info</option>
+              <option value="order_tracking">Order Tracking</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="advice">Advice</option>
+              <option value="other">Other</option>
+            </optgroup>
+           
+          </select>
+        </div> -->
+
+        <div>
+          <label for="subject1">Subject:</label>
+          <input type="text" list="subject" id="subject1" placeholder="Enter your subject">
+          <datalist id="subject">
+            <option value="returns">Returns</option>
+            <option value="faulty_item">Faulty Item</option>
+            <option value="delivery">Delivery Info</option>
+            <option value="order_tracking">Order Tracking</option>
+            <option value="advice">Advice</option>
+            <option value="other">Other</option>
+          </datalist>
+        </div>
         <div>
             <p>Subscribe to future offers by:</p>
             <label for="newsletter">Newsletter</label><input type="checkbox" id="newsletter" name="subscribe" value="newsletter">
@@ -63,7 +135,29 @@
             <label for="phoneResponse">Phone</label><input type="radio" id="phoneResponse" name="response" value="phone">
             <label for="emailResponse">Email</label><input type="radio" id="emailResponse" name="response" value="phone">
         </div>
+
+        <div>
+          <input type="submit">
+          <input type="reset">
+          <!-- <button type="submit">Submit</button> -->
+        </div>
       </form>
+<!-- 
+      <iframe src="http://youtube.com" frameborder="1" width="800" height="600">
+        <p>Your browser does not support iframes</p>
+      </iframe> -->
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ls1Bf6XCEM4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <!-- Experimenting with Inputs -->
+      <!-- <form action="">
+        <input type="number">
+        <input type="password" name="" id="">
+        <input type="date">
+        <input type="color">
+        <input type="range" min="1" max="10" value="1">
+        <input type="search">
+      </form> -->
     
     </main>
 
@@ -76,5 +170,9 @@
         </ul>
       </nav>
     </footer>
+ <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
   </body>
+
+ 
 </html>
