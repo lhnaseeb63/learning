@@ -1,0 +1,62 @@
+html {
+    background-color: #f7f7f7;
+  }
+  body{
+    background-color: white;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Barlow', sans-serif;;
+  }
+  header, footer {
+    background: #333a40; 
+    color: white;
+  }
+
+  ul {
+      margin: 0;
+      padding: 0;
+  }
+
+  header li {
+      display: inline;
+  }
+
+  header h1, nav {
+      display: inline-block;
+  }
+
+  main {
+      width: 680px;
+      display: inline-block;
+  }
+
+  aside {
+      width: 270px;
+      display: inline-block;
+      vertical-align: top; 
+      /* vertical align can be used to align inline properties. Before the 
+      aside was at the bottom and we used this property to align it to the top
+      of the page */
+  }
+
+  #name {
+    background-color: red;;
+  }
+
+  .product {
+      box-sizing: border-box;
+    border: 1px solid gray;
+    width: 210px;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+  }
+
+  img {
+      max-width: 100%;
+  }
+
+  .button {
+      padding: 10px;
+      display: inline-block;
+  }
