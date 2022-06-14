@@ -20,7 +20,7 @@ body {
     display: grid;
     /* grid-template-columns: repeat(3, 1fr);   */
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    /*  
+    /*  responsiveness
     repeat(number of columns, size of columns)auto-fill just makes one long column for each row
     the minmax(minimum of 200px, max of 1fr)
     if you go below 200px it wraps*/
