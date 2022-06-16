@@ -19,6 +19,9 @@ body {
     padding: 20px;
     /* wanted to get the basic css done before doing the grid */
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+
 }
 
 .card {
@@ -89,8 +92,47 @@ body {
     color: white;
 }
 
+/* Where we position the cards */
+
+.card:nth-of-type(1){
+    grid-column: 1/3; 
+}
+
+.card:nth-of-type(4){
+    grid-column: 2/4;
+    grid-row: 2;
+}
+
+.card:nth-of-type(5){
+    grid-row: 1/3;
+    grid-column:4 ;
+}
+
 footer {
     text-align: center;
+}
+
+/* To account for different screen sizes */
+@media(max-width: 768px) {
+    .testimonials{
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .card:nth-of-type(1){
+        grid-column: 1/2; 
+    }
+    
+    .card:nth-of-type(4){
+        grid-column: 1/2;
+        grid-row: 4/5;
+    }
+    
+    .card:nth-of-type(5){
+        grid-column:1/2 ;
+        grid-row: 5/6;
+    }
+
 }
 
 

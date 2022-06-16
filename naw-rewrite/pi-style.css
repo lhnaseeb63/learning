@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    background: #edf2f8;
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.7;
+    font-size: 20px;
+
+    max-width: 75%;
+    /* change margin when including the nav bar */
+    margin: 100px auto;
+}
+
+.inputContainer {
+
+}
+
+.inputTitles {
+    background-color: rgba(0, 255, 255, 0.106);
+    max-width: 25%;
+}
+
+.inputFields {
+    background-color: rgba(137, 43, 226, 0.08);
+    max-width: 50%;
+}
