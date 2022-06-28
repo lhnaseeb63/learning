@@ -1,0 +1,23 @@
+https://www.youtube.com/watch?v=3YW65K6LcIA&t=24s
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
+Known as flexible box model. 1 dimensional
+Grid for overall layout of page
+flexbox for inner elements
+flex container is the element that holds flex items
+flex items are direct children of the flex container
+
+Flex container properties:
+flex-direction
+flex-wrap
+flex-flow
+justify-content, main axis
+align-items, cross axis
+align-content
+
+Flex Item Properties:
+order
+flex-grow
+flex-shrink
+flex-basis
+align-self

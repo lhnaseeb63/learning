@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Random Number Array</title>
+  </head>
+  <body>
+    <p class="valueRange">Value Range:</p>
+    <p class="valueRange" id="originalArray"></p>
+    <br>
+    <p  class="valueRange">Randomized Array:</p>
+    <p  class="valueRange" id="demo">Randomized Array:</p>
+    <br>
+    <p  class="valueRange">Boxes:</p>
+    <p  class="valueRange" id="boxes"></p>
+    <br>
+    <div class="boxeContainer">
+      <div id="box1" class="box1">1</div>
+      <div id="box2" class="box2">2</div>
+      <div id="box3" class="box3">3</div>
+      <div id="box4" class="box4">4</div>
+      <div id="Num" class="Num">5</div>
+    </div>
+    <script>
+    
+      let Number=3;
+      //initial array between 0-10
+      var a1 = [];
+      for (var i = 1; i < 11; i++) {
+        a1.push(i);
+      }
+      document.getElementById("originalArray").innerHTML = a1;
+      //randomizing positions of the values
+      var a2 = [];
+      var boxes =[];
+
+      while (a1.length) {
+        var pos = Math.random() * a1.length;
+        var element = a1.splice(pos, 1)[0];
+        a2.push(element);
+        
+      }
+      // a2 is now an array with a random permutation of the elements of a1
+      
+      // boxes has 4 of the random elements 
+      //checks if the solution is already in array
+      for(var i =0; i<4; i++){
+        if (a2[i] != Number){
+          boxes[i]=a2[i];
+        }
+        else {
+          boxes[i]=a2[i+4];
+          //if the solution is at a2[i], assign a different value from array
+        }
+       
+      }
+
+      //assigning the correct value randomly to boxes
+      let position = Math.floor(Math.random()*4);
+      boxes[position] = Number;
+      
+      document.getElementById("demo").innerHTML = a2;
+      document.getElementById("boxes").innerHTML = boxes;
+    
+       document.getElementById("box1").innerHTML = boxes[0];
+      document.getElementById("box2").innerHTML = boxes[1];
+      document.getElementById("box3").innerHTML = boxes[2];
+      document.getElementById("box4").innerHTML = boxes[3];
+      document.getElementById("Num").innerHTML = Number;
+    </script>
+    
+  </body>
+</html>
