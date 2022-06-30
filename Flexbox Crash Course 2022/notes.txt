@@ -21,3 +21,15 @@ flex-grow
 flex-shrink
 flex-basis
 align-self
+
+Order: you can set the order of items by using order: number. Super cool!
+
+width: 
+flex-basis--> width of box when it starts out
+flex-grow--> default is zero, factor of flex element's main size,
+ think of it as growth rate, 1,2,3, etc. 
+flex-shrink --> shrink at different rates
+flex: grow shrink basis --> all lot of the time we won't have a flex basis
+ if we want all of the items to have the same width and space can use the 
+ short-hand flex:1
+

@@ -8,28 +8,34 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.flex-container {
-    height: 500px;
-    display: flex;
-    flex-direction: column;
+.flex-container {    
+    display: flex;   
     background-color: #f4f4f4;
+   
     /* Always is on main axis  */
-    justify-content: end;
+    /* justify-content: end; */
     /* Always on cross axis */
-    align-items: flex-start;
+    /* align-items: flex-start; */
+
+    /* flex-wrap: wrap; */
 }
 
 .item {
-    width: 100px;
+    flex: 1 0 100px;
     height: 100px;
     background-color: #254de4;
     color: white;
     margin: 10px;
+    /* flex-grow: 1; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .item:nth-of-type(1) {
-   
-}
+    
+   }
 
 .item:nth-of-type(2) {
     
