@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+
+* {
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.bg {
+    background: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80')
+    no-repeat center center/cover;
+    /* center/cover
+    center on the x and y axis 
+    cover: Resize the background image to cover the 
+    entire container, even if it has to stretch the 
+    image or cut a little bit off one of the edges
+    
+    background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;*/
+
+    position: absolute;
+    /* when we do top and left 0px the border during the blur sucks
+    so we shift the top and left to hide it.  */
+    top: -30px;
+    left: -30px;
+    /* The right and bottom still are weird so we use calc()
+    to adjust and make it even all around */
+    width: calc(100vw + 60px);
+    height: calc(100vh + 60px);
+    z-index: -1;
+    filter: blur(0px);
+}
+
+.loading-text {
+    font-size:50px;
+    color: white;
+
+}
