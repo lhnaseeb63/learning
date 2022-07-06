@@ -6,27 +6,81 @@
     padding: 0;
 }
 
-.content {
-    background: #edf2f8;
+body{
+    background: #e1eaf3;
     font-family: 'Barlow', sans-serif;
     line-height: 1.7;
     font-size: 20px;
-
     max-width: 75%;
-    /* change margin when including the nav bar */
-    margin: 100px auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    direction: rtl;
+
+}
+.content {
+    background: #f9fbfd;
+    /* not sure if we need this when we use flexbox */
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inputContainer, .buttonsContainer{
+    max-width: 70%;
 }
 
-.inputContainer {
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(245, 223, 234);
+}
+
+.fieldContainer {
+    background-color: aquamarine;
+    width: 798px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
 }
 
-.inputTitles {
-    background-color: rgba(0, 255, 255, 0.106);
-    max-width: 25%;
+.fieldContainer p{
+    background-color: blue;
 }
 
-.inputFields {
-    background-color: rgba(137, 43, 226, 0.08);
-    max-width: 50%;
+.checkboxesContainer {
+    background-color: rgb(159, 231, 231);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+    
 }
+
+.checkboxBox{
+    flex-basis: 45%;
+    background-color: bisque;
+    margin: 5px;
+}
+
+.checkboxBox label {
+    background-color: blue;
+    padding: 10px;
+    color: white;
+}
+
+.checkboxes {
+    margin: 3px;
+    
+    
+}
+
+
+
