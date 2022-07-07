@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    background-color: #f4f4f4;
+    /* main axis, row: horizontal */
+    /* main axis, column: vertical */
+    /* justify-content: end; */
+    /* cross axis, row: vertical */
+    /* cross axis, column: horizontal */
+    /* align-items: start; */
+}
+
+.item {
+   width: 100px;
+   height: 100px; 
+   background-color: #254de4;
+   margin: 10px;
+   color: white;
+   
+   /* to align stuff inside item: text */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+/* Position one item at a time */
+/* .item:nth-of-type(1){
+    align-self: start;
+}
+.item:nth-of-type(2){
+    align-self: center;
+}
+.item:nth-of-type(3){
+    align-self: end;
+} */
