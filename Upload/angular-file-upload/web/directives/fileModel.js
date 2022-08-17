@@ -1,7 +1,7 @@
 myApp.directive('fileModel', ['$parse', function($parse){
 	return {
 		restrict: 'A', //only an attribute
-		link: function(scope, element, attrs){
+		link: function(scope, element, attrs){ //this is where ajs bridges with DOM
 			var model = $parse(attrs.fileModel); 
 			var modelSetter = model.assign; 
 			element.bind('change', function(){  
