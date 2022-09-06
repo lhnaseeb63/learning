@@ -1,4 +1,4 @@
-* {
+*{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -16,21 +16,20 @@ body {
     'nav footer footer'
     ;
     grid-template-columns: 1fr 4fr 1fr;
+    /* rows --> 1fr is the remainder after alloting the 
+    70 and 80 px*/
     grid-template-rows: 80px 1fr 70px;
-    /* 1fr in this case would be the remaining area
-    between the header and footer */
 }
 
 header,
 footer,
 main,
-aside, 
+aside,
 nav {
     background-color: steelblue;
     color: white;
     padding: 20px;
     border: skyblue 1px solid;
-
 }
 
 header {
@@ -49,6 +48,6 @@ aside {
     grid-area: sidebar;
 }
 
-footer {
+footer{
     grid-area: footer;
 }
