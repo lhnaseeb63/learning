@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
 :root {
     --primary-grey: rgb(75, 73, 75);
-    --nested-grid: #44e041;
+    --logo-skyBlue: rgba(127, 214, 247, 1);
 }
 
 *{
@@ -115,30 +115,33 @@ nav .username {
 nav .username h4 {
     margin-right: 10px;;
 }
-/* --------------------------------------------------------------------Template (Main) styling */
+/* --------------------------------------------------------------------Template Template(Main) styling */
 .--template-insert{
     display: grid;
     height: 100%;
     grid-template-areas: 
     'template-header  template-header template-header template-header'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
-    'left_space field label right_space'
+    'left_space       EnumField       Enum            right_space'
+    'left_space       dopField        dop             right_space'
+    'left_space       repField        rep             right_space'
+    'left_space       titleField      title           right_space'
+    'left_space       nopField        nop             right_space'
+    'left_space       typeField       type            right_space'
+    'left_space       internalField   internal        right_space'
+    'left_space       thirdPartiesField thirdParties  right_space'
+    'left_space       notesField      notes           right_space'
+    'left_space       attachmentsField attachments    right_space'
     'template-buttons template-buttons template-buttons template-buttons'
     ;
     grid-template-columns: 0.5fr 2fr 0.7fr 0.5fr;
+    /* grid-template-rows: repeat(10, 1fr); */
     border: rgba(75, 73, 75,60%) 2px solid;
     border-radius: 40px;
     box-shadow: 8px 11px 4px -2px rgba(15, 15, 15, 0.2);
     font-weight: 500;
+    background-color: rgba(127, 214, 247, 0.05);
+    color: rgb(0, 50, 70);
+     
 }
 .right_space,
 .left_space,
@@ -146,8 +149,9 @@ nav .username h4 {
 .--template-buttons, 
 .field,
 .label {
-    padding: 20px;
-    border: skyblue 1px solid;
+    padding: 15px;
+    /* border: skyblue 1px solid; */
+    
     
 }
 
@@ -161,19 +165,68 @@ nav .username h4 {
     grid-area: right_space;
 }
 
+.field {
+    text-align: end;
+}
 
+.field input[type=text],
+.field textarea,
+.field input[type=date],
+.field select{
+    height: 40px;
+    width: 80%;
+    border:rgba(15, 15, 15, 0.2) 2px solid;
+    border-radius: 5px;
+    background-color: rgba(127,214,247, 0.1);
+    padding: 10px;
+    grid-auto-rows: min-content;
+    font-size: inherit;
+}
+
+.field input[type=text]:focus,
+.field textarea:focus,
+.field input[type=date]:focus,
+.field select:focus
+{
+    outline: none;
+    background-color: white;
+    border-color:rgb(0, 50, 70) ;
+    border-width: 2px;
+    padding: 14px;
+    
+}
+
+.textWrapper{
+    width: 80%;
+    height: 150px;
+    border-radius: 5px;
+    float: right; 
+    /* why do I have to use a float to center it? wtf? */
+}
+
+.textWrapper textarea{
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+}
+
+textarea::-webkit-scrollbar{
+    width: 0;
+}
+
+.label {
+    text-align: end;
+}
 .--template-labels{
     text-align: end;
 }
 
-.label{
-    grid-area: label;
-}
-
 .--template-fields{
-    text-align: center;
+    text-align: end;
 }
-
 
 .--template-buttons{
     grid-area: template-buttons;
@@ -182,3 +235,67 @@ nav .username h4 {
     grid-area: left_space;
 }
  
+
+/* --------------------------------------------------------Labels */
+.Enum{
+    grid-area:Enum ;
+}
+.dop{
+    grid-area: dop;
+}
+.rep{
+    grid-area:rep ;
+}
+.title{
+    grid-area: title;
+}
+.nop{
+    grid-area: nop;
+}
+.type{
+    grid-area: type;
+}
+.internal{
+    grid-area:internal;
+}
+.thirdParties{
+    grid-area:thirdParties ;
+}
+.notes{
+    grid-area:notes ;
+}
+.attachments{
+    grid-area: attachments;
+}
+
+/* --------------------------------------------------------Fields */
+.EnumField{
+    grid-area:EnumField ;
+}
+.dopField{
+    grid-area: dopField;
+}
+.repField{
+    grid-area: repField;
+}
+.titleField{
+    grid-area: titleField;
+}
+.nopField{
+    grid-area: nopField;
+}
+.typeField{
+    grid-area: typeField;
+}
+.internalField{
+    grid-area: internalField;
+}
+.thirdPartiesField{
+    grid-area: thirdPartiesField;
+}
+.notesField{
+    grid-area: notesField;
+}
+.attachmentsField{
+    grid-area: attachmentsField;
+}
