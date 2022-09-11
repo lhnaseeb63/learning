@@ -2,21 +2,47 @@ console.log("I'm in");
 
 const labels = document.querySelectorAll('.label');
 const fields = document.querySelectorAll('.input');
+let labelDivArray = [];
+let temp = [];
+let lastClicked;
+
+setClassArrays();
+
+// Creating arrays to compare class names
+function setClassArrays() {
+  labels.forEach((label) => {
+    temp = label.className.split(' ');
+    temp.forEach((item, idx) => {
+      if (idx % 2 != 0) {
+        labelDivArray.push(temp[idx]);
+      }
+    });
+  });
+}
 
 // field is active, make corresponding label bold by adding active class
-// fields 5 and 6 should both map to type (the radio buttons)
-// fix fields 5 and below with checks
+// Check class name for matching string. Only make bold if they match.
 fields.forEach((field, idx) => {
-  if (idx == 5 || idx == 6) {
-    idx = 5;
-  }
   field.addEventListener('focusin', () => {
-    console.log(idx + ' Field is active');
-    labels[idx].classList.add('active');
+    if (field.nodeName == 'TEXTAREA') {
+      labelDivArray.forEach((label, i) => {
+        if (field.parentNode.parentNode.classList[1].includes(label)) {
+          labels[i].classList.add('active');
+          lastClicked = labels[i];
+        }
+      });
+    } else {
+      labelDivArray.forEach((label, i) => {
+        if (field.parentNode.classList[1].includes(label)) {
+          labels[i].classList.add('active');
+          lastClicked = labels[i]; //pass by reference?
+        }
+      });
+    }
   });
+
   field.addEventListener('focusout', () => {
-    console.log(idx + ' is no longer active');
-    labels[idx].classList.remove('active');
+    lastClicked.classList.remove('active');
   });
 });
 
