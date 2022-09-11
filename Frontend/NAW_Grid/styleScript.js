@@ -2,10 +2,12 @@ console.log("I'm in");
 
 const labels = document.querySelectorAll('.label');
 const fields = document.querySelectorAll('.input');
+const buttons = document.querySelectorAll('.btn');
 let labelDivArray = [];
 let temp = [];
 let lastClicked;
 
+//-----------------------------------------------------------Code to make labels for clicked field bold
 setClassArrays();
 
 // Creating arrays to compare class names
@@ -46,7 +48,19 @@ fields.forEach((field, idx) => {
   });
 });
 
-// Code to make textarea expand with input
+buttons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    if (btn.parentNode.classList[1].includes(labels[9].classList[1])) {
+      labels[9].classList.add('active');
+    }
+  });
+
+  btn.addEventListener('focusout', () => {
+    labels[9].classList.remove('active');
+  });
+});
+
+// -------------------------------------------------------------Code to make textarea expand with input
 const textarea = document.querySelector('textarea');
 textarea.addEventListener('keyup', (e) => {
   textarea.style.height = 'auto';
