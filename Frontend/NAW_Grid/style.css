@@ -135,6 +135,8 @@ nav .username h4 {
     ;
     grid-template-columns: 0.5fr 2fr 0.7fr 0.5fr;
     /* grid-template-rows: repeat(10, 1fr); */
+    grid-template-rows: 0.5fr repeat(10,auto) 0.5fr;
+
     border: rgba(75, 73, 75,60%) 2px solid;
     border-radius: 40px;
     box-shadow: 8px 11px 4px -2px rgba(15, 15, 15, 0.2);
@@ -179,7 +181,7 @@ nav .username h4 {
     border-radius: 5px;
     background-color: rgba(127,214,247, 0.1);
     padding: 10px;
-    grid-auto-rows: min-content;
+    /* grid-auto-rows: auto; */
     font-size: inherit;
 }
 
