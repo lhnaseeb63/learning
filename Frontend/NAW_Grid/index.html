@@ -11,6 +11,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Boxicons CDN Link -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>NAW GRID</title>
   </head>
@@ -89,40 +91,51 @@
       </main>
     </div>
     <nav>
-      <div class="logo--label">
-        <img src="images/state-of-kuwait.png" alt="" />
-        <h4>شؤون مجلس الأمة</h4>
+      <div class="logoWrapper">
+        <div class="logo--label">
+          <img src="images/state-of-kuwait.png" alt="" />
+          <h4>شؤون مجلس الأمة</h4>
+        </div>
+        <i class="bx bx-menu" id="menuBtn"></i>
       </div>
 
       <div class="linksContainer">
         <div class="link">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <a href="#">بحث</a>
+          <a href="#">
+            <span class="linkName"> بحث </span>
+            <i class="bx bx-search"></i>
+          </a>
         </div>
         <div class="link">
           <a href="#">الأسئلة البرلمانية</a>
+          <i class="bx bx-user-voice"></i>
         </div>
         <div class="link">
           <a href="#">الشكاوي</a>
+          <i class="bx bx-user-x"></i>
         </div>
         <div class="link">
           <a href="#">الإقتراحات</a>
+          <i class="bx bx-bulb"></i>
         </div>
         <div class="link">
           <a href="#">اللجان</a>
+          <i class="bx bx-buildings"></i>
         </div>
         <div class="link">
           <a href="#">Management</a>
+          <i class="bx bx-pie-chart-alt-2"></i>
         </div>
         <div class="link">
           <a href="#">DB Management</a>
+          <i class="bx bx-table"></i>
         </div>
       </div>
 
       <div class="userInfoContainer">
         <div class="username">
           <h4>Username</h4>
-          <i class="fa-regular fa-circle-user"></i>
+          <i class="bx bx-user-circle"></i>
         </div>
 
         <div class="date--time">
