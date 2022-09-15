@@ -1,0 +1,124 @@
+nav {
+    position: sticky;
+    top:0;
+    width: 20vw;
+    height: 100vh;
+    background-color: var(--primary-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    border-radius: 40px 0 0 40px;
+    z-index: 99;
+    transition: all 0.5s ease;
+} 
+
+nav.open{
+    width: 250px;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+nav .logoWrapper {
+    width: 90%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 25px;
+}
+
+nav .logoWrapper .logo--label {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-right: 0;
+}
+
+
+nav .logoWrapper .logo--label img {
+    height: 50px;
+    margin-left: 5px;
+}
+
+nav .logoWrapper .logo--label h4 {
+    font-weight: 600;
+}
+
+nav #menuBtn {
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+}
+
+
+nav .linksContainer {
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+nav .linksContainer .link{
+    position: relative;
+    height: 60px;
+    width: 100%;
+    padding: 0 20px 40px;
+    line-height: 50px;
+    /* background-color: aqua; */
+    
+}
+
+nav .linksContainer .link a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    transition: all 0.4 ease;
+    border-radius: 12px;
+    padding: 0 15px;
+    
+}
+
+nav .linksContainer .link a .linkName {
+    font-weight: 500;
+}
+
+nav .linksContainer .link a i{
+    padding-left: 20px;
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+nav .linksContainer .link a:hover{
+    color: var(--primary-grey);
+    background-color: #fff;
+}
+
+nav .userInfoContainer{
+    margin-top: 60px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav .userInfoContainer span{
+    margin: 5px;
+}
+
+nav .username {
+    display: flex;
+    align-items: center;
+}
+
+nav .username h4 {
+    margin-right: 10px;
+}
