@@ -96,8 +96,9 @@ main {
   }
   .sidebar .logo-details .logo_name{
     width: 200px;
-    margin-top: 7px;
-    margin-left: 70px;
+    /* margin-top: 0px; */
+    margin-left: 35px;
+    /* justify-content: end; */
     opacity: 0;
     transition: all 0.4s ease;
   }
@@ -216,29 +217,36 @@ main {
   }
   .sidebar.open li.profile{
     width: 250px;
+    height: 70px;
   }
   .sidebar li .profile-details{
     display: flex;
+    width: 100%;
     align-items: center;
     flex-wrap: nowrap;
   }
-  .sidebar li img{
-    height: 45px;
-    width: 45px;
-    object-fit: cover;
-    border-radius: 6px;
-    margin-right: 10px;
+
+  .sidebar li.profile .name{
+    font-size: 19px;
+    font-weight: 500;
+    color: #fff;
   }
-  .sidebar li.profile .name,
-  .sidebar li.profile .job{
+
+  .sidebar li.profile .date-time-wrapper{
     font-size: 15px;
     font-weight: 400;
     color: #fff;
     white-space: nowrap;
   }
-  .sidebar li.profile .job{
-    font-size: 12px;
+  .sidebar li.profile .date-time-wrapper{
+    display: flex;
+    font-size: 15px;
   }
+
+  .sidebar li.profile .date-time-wrapper .date{
+    margin-right: 10px;
+  }
+
   .sidebar .profile #log_out{
     position: absolute;
     top: 50%;
@@ -262,7 +270,7 @@ main {
     }
   }
   
-/* --------------------------------------------------------------------Template Template(Main) styling */
+/* ----------------------------------------------------------------------------------------Template Template(Main) styling */
 .--template-insert{
     display: grid;
     height: 100%;
