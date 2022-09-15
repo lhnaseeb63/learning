@@ -2,6 +2,8 @@
 :root {
     --primary-grey: rgb(37, 37, 37);
     --secondary-grey: rgb(146, 193, 212);
+    --secondary-grey-content-border: rgba(146, 193, 212,0.5);
+    --secondary-grey-content-dropShadow: rgba(146, 193, 212,0.4);
     --logo-skyBlue: rgba(127, 214, 247, 1);
   }
 
@@ -20,13 +22,14 @@ body {
 
 .grid {
     font-family: inherit;
-    width: 80vw;
+    width: calc(100% - 78px);
     display: grid;
     grid-template-areas: 
     'header  '
     'content '
     ;
     grid-template-rows: 120px 1fr;
+    padding:0 40px 40px 40px;
 }
 
 header,
@@ -65,41 +68,38 @@ main {
   }
   .sidebar .logo-details{
     height: 60px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     position: relative;
   }
-  .sidebar .logo-details .icon{
-    opacity: 0;
-    transition: all 0.5s ease;
-  }
-  
+ 
   .logoWrapper{
     display: flex;
     flex-direction: column;
   }
   
-  .sidebar .logoWrapper img{
+  .sidebar .logoWrapper .state-of-kuwait-logo{
     margin-top: 15px;
     height: 50px;
     width: 50px;
     transition: all 0.5s ease;
   }
   
-  .sidebar.open .logoWrapper img{
-    transform: translateX(100%);
+  .sidebar.open .logoWrapper .state-of-kuwait-logo{
+    transform: translateX(115%);
     height: 70px;
     width: 70px;
     transition: all 0.5s ease;
   
   }
   .sidebar .logo-details .logo_name{
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
+    width: 200px;
+    margin-top: 7px;
+    margin-left: 70px;
     opacity: 0;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
   }
   .sidebar.open .logo-details .icon,
   .sidebar.open .logo-details .logo_name{
@@ -163,40 +163,7 @@ main {
   .sidebar.open li .tooltip{
     display: none;
   }
-  .sidebar input{
-    font-size: 15px;
-    color: #FFF;
-    font-weight: 400;
-    outline: none;
-    height: 50px;
-    width: 100%;
-    width: 50px;
-    border: none;
-    border-radius: 12px;
-    transition: all 0.5s ease;
-    background: var(--secondary-grey);
-  }
-  .sidebar.open input{
-    padding: 0 20px 0 50px;
-    width: 100%;
-  }
-  .sidebar .bx-search{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    font-size: 22px;
-    background: var(--secondary-grey);
-    color: #FFF;
-  }
-  .sidebar.open .bx-search:hover{
-    background: var(--secondary-grey);
-    color: #FFF;
-  }
-  .sidebar .bx-search:hover{
-    background: #FFF;
-    color: var(--primary-grey);
-  }
+ 
   .sidebar li a{
     display: flex;
     height: 100%;
@@ -288,30 +255,7 @@ main {
     width: 50px;
     background: none;
   }
-  .home-section{
-    position: relative;
-    display: flex;
-    justify-content: end;
-    background: #E4E9F7;
-    min-height: 100vh;
-    top: 0;
-    right: 78px;
-    width: calc(100% + 78px);
-    transition: all 0.5s ease;
-    z-index: 2;
-  }
-  .sidebar.open ~ .home-section{
-    right: 250px;
-    width: calc(100% + 250px);
-  }
-  .home-section .text{
-    display: inline-block;
-    color: var(--primary-grey);
-    font-size: 25px;
-    font-weight: 500;
-    margin: 18px;
-    
-  }
+
   @media (max-width: 420px) {
     .sidebar li .tooltip{
       display: none;
@@ -337,12 +281,10 @@ main {
     'template-buttons template-buttons template-buttons template-buttons'
     ;
     grid-template-columns: 0.5fr 2fr 0.7fr 0.5fr;
-    /* grid-template-rows: repeat(10, 1fr); */
     grid-template-rows: 0.5fr repeat(10,auto) 0.5fr;
-
-    border: rgba(75, 73, 75,60%) 2px solid;
+    border: var(--secondary-grey-content-border) 2px solid; 
     border-radius: 40px;
-    box-shadow: 8px 11px 4px -2px rgba(15, 15, 15, 0.2);
+    box-shadow: 8px 8px 5px -2px var(--secondary-grey-content-dropShadow);
     font-weight: 500;
     background-color: rgba(127, 214, 247, 0.05);
     color: rgb(0, 50, 70);
