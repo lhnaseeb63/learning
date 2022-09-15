@@ -165,7 +165,7 @@ main {
     display: none;
   }
  
-  .sidebar li a{
+  .sidebar li a.list-link{
     display: flex;
     height: 100%;
     width: 100%;
@@ -177,10 +177,10 @@ main {
     justify-content: space-between;
     margin-bottom: 15px;
   }
-  .sidebar li a:hover{
+  .sidebar li a.list-link:hover{
     background: #FFF;
   }
-  .sidebar li a .links_name{
+  .sidebar li a.list-link .links_name{
     color: #fff;
     font-size: 17px;
     font-weight: 500;
@@ -189,13 +189,13 @@ main {
     pointer-events: none;
     transition: 0.4s;
   }
-  .sidebar.open li a .links_name{
+  .sidebar.open li a.list-link .links_name{
     opacity: 1;
     pointer-events: auto;
     padding-right: 35px;
   }
-  .sidebar li a:hover .links_name,
-  .sidebar li a:hover i{
+  .sidebar li a.list-link:hover .links_name,
+  .sidebar li a.list-link:hover i{
     transition: all 0.5s ease;
     color: var(--primary-grey);
   }
@@ -263,6 +263,11 @@ main {
   .sidebar.open .profile #log_out{
     width: 50px;
     background: none;
+  }
+
+  .sidebar li.profile #log_out:hover{
+    background-color: white;
+    color: var(--secondary-grey);
   }
 
   @media (max-width: 420px) {
