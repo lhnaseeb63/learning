@@ -175,14 +175,15 @@ main {
     transition: all 0.4s ease;
     background: var(--primary-grey);
     justify-content: space-between;
+    margin-bottom: 15px;
   }
   .sidebar li a:hover{
     background: #FFF;
   }
   .sidebar li a .links_name{
     color: #fff;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 17px;
+    font-weight: 500;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
