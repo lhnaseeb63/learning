@@ -4,6 +4,8 @@
     --secondary-grey: rgb(146, 193, 212);
     --secondary-grey-content-border: rgba(146, 193, 212,0.5);
     --secondary-grey-content-dropShadow: rgba(146, 193, 212,0.4);
+    --secondary-grey-buttons-dropShadow: rgba(0, 68, 95, 0.816);
+    --secondary-grey-buttons-input-hoverBackground: rgba(0, 68, 95, 0);
     --logo-skyBlue: rgba(127, 214, 247, 1);
   }
 
@@ -16,7 +18,7 @@
 body {
    display: flex;
    font-family: 'Tajawal', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     overflow: visible;
 }
 
@@ -264,7 +266,7 @@ main {
     right: 0;
     transform: translateY(-50%) translateX(-70%);
     background: var(--secondary-grey);
-    transition: all 0.5s ease;
+    transition: all 0.6s ease;
     height: 50px;
     line-height: 50px;
     border-radius: 12px;
@@ -275,7 +277,6 @@ main {
   .sidebar.open .profile .log_outWrapper{
     width: 100px;
     transform: translateY(-55px) translateX(160px);
-    /* background: none; */
   }
 
   .sidebar li.profile #log_out:hover{
@@ -304,7 +305,7 @@ main {
   }
 
   .sidebar li.profile .log_outWrapper .exit-link:hover .exit-tooltip{
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     pointer-events: auto;
     opacity: 1;
     top: 50%;
@@ -339,7 +340,7 @@ main {
     'template-buttons template-buttons template-buttons template-buttons'
     ;
     grid-template-columns: 0.5fr 2fr 0.7fr 0.5fr;
-    grid-template-rows: 0.5fr repeat(10,auto) 0.5fr;
+    grid-template-rows: 0.5fr repeat(10,auto) 1.5fr;
     border: var(--secondary-grey-content-border) 2px solid; 
     border-radius: 40px;
     box-shadow: 8px 8px 5px -2px var(--secondary-grey-content-dropShadow);
@@ -355,9 +356,6 @@ main {
 .field,
 .label {
     padding: 15px;
-    /* border: skyblue 1px solid; */
-    
-    
 }
 
 .--template-header{
@@ -438,9 +436,72 @@ textarea::-webkit-scrollbar{
     text-align: end;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
+
 .--template-buttons{
     grid-area: template-buttons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-grey);
+    border-radius: 0 0 40px 40px;
+
 }
+
+.--template-buttons .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:rgb(0, 50, 70);
+  background-color: white;
+  cursor: pointer;
+  font-weight: 400;
+  margin: 0 10px;
+  border-radius: 8px;
+  height: 50px;
+  width: 100px;
+  box-shadow: inset 0 -4px 0 0 var(--secondary-grey-buttons-dropShadow);
+  transition: all 0.1s;
+  padding: 5px 5px 8px 5px;
+}
+
+.--template-buttons input{  
+  border: 0;
+  background-color: #FFF;
+  margin-right: 5px;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.--template-buttons i{
+  font-size: 20px;
+
+}
+
+.--template-buttons .button:hover{
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: inset 0 -4px 0 0 rgb(0, 50, 70);
+  background-color: var(--secondary-grey-buttons-dropShadow);
+  color:white;
+}
+
+.--template-buttons .button:hover input{
+  background-color: var(--secondary-grey-buttons-input-hoverBackground);
+  color:white;
+}
+
+.--template-buttons .button:active {
+  box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
+  height: 35px;
+  transform: translateY(5px);
+}
+
+.--template-buttons input:focus{
+  outline: none;
+}
+
 .left_space{
     grid-area: left_space;
 }
@@ -476,6 +537,7 @@ textarea::-webkit-scrollbar{
 }
 .attachments{
     grid-area: attachments;
+    margin-bottom: 30px;
 }
 
 /* --------------------------------------------------------Fields */
