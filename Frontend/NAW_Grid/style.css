@@ -285,11 +285,12 @@ main {
 
   .sidebar li.profile .log_outWrapper .exit-link .exit-tooltip{
     position: absolute;
-    right: 78px;
+    right: 100px;
     top: 0;
     transform: translateY(-50%);
     font-size: 15px;
     font-weight: 400;
+    color: black;
     height: 35px;
     width: 122px;
     background-color: white;
