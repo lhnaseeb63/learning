@@ -436,8 +436,6 @@ textarea::-webkit-scrollbar{
     text-align: end;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
-
 .--template-buttons{
     grid-area: template-buttons;
     display: flex;
@@ -461,7 +459,7 @@ textarea::-webkit-scrollbar{
   height: 50px;
   width: 100px;
   box-shadow: inset 0 -4px 0 0 var(--secondary-grey-buttons-dropShadow);
-  transition: all 0.1s;
+  transition: all 0.1s ease;
   padding: 5px 5px 8px 5px;
 }
 
@@ -494,8 +492,8 @@ textarea::-webkit-scrollbar{
 
 .--template-buttons .button:active {
   box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
-  height: 35px;
-  transform: translateY(5px);
+  height: 40px;
+  transform: translateY(4px);
 }
 
 .--template-buttons input:focus{
@@ -535,9 +533,10 @@ textarea::-webkit-scrollbar{
 .notes{
     grid-area:notes ;
 }
+
 .attachments{
     grid-area: attachments;
-    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 /* --------------------------------------------------------Fields */
@@ -568,6 +567,95 @@ textarea::-webkit-scrollbar{
 .notesField{
     grid-area: notesField;
 }
-.attachmentsField{
-    grid-area: attachmentsField;
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
+.attachmentsField {
+  grid-area: attachmentsField;
+  display: flex;
+  /* justify-content: space-between; */
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.attachmentsField .attach-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 20%;
+  position: relative;
+}
+
+.attachmentsField .attach-buttons-wrapper .attach-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  background-color: var(--secondary-grey);
+  color: #FFF;
+  cursor: pointer;
+  font-weight: 400;
+  margin: 0 10px 20px 10px;
+  border-radius: 8px;
+  height: 50px;
+  width: 120px;
+  box-shadow: inset 0 -4px 0 0 var(--secondary-grey-buttons-dropShadow);
+  transition: all 0.1s ease;
+  padding: 5px 5px 8px 5px;
+}
+
+.attachmentsField .attach-buttons-wrapper .attach-button input[type=file],
+.attachmentsField .attach-buttons-wrapper .attach-button input[type=submit]{
+  display:none;
+}
+
+.attachmentsField .attach-buttons-wrapper .attach-button label{
+  cursor: pointer;
+}
+
+.attachmentsField .attach-buttons-wrapper .attach-button:hover{
+  box-shadow: inset 0 -4px 0 0 rgb(0, 50, 70);
+  background-color: var(--secondary-grey-buttons-dropShadow);
+  color:white;
+}
+
+.attachmentsField .attach-buttons-wrapper .attach-button:active {
+  box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
+  /* height: 40px; it shifts the button below up and i dont know how to fix it*/
+  transform: translateY(4px);
+}
+
+.attachmentsField .icons-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  width: 80%;
+  height: 200px;
+  border: rgba(15, 15, 15, 0.2) 2px dashed;
+  border-radius: 5px;
+  background-color: rgba(127,214,247, 0.1);
+  /* border-color:rgb(0, 50, 70) ; */
+  border-width: 2px;
+  padding: 14px;
+}
+
+.attachmentsField .icons-wrapper .icon {
+  display: flex;
+  word-wrap: break-word;
+  justify-content: end;
+  flex-direction: row-reverse;
+  margin: 5px 10px 10px 17px;
+  height: 50%;
+  width: 20%;
+}
+
+.attachmentsField .icons-wrapper .icon .icon-image img{
+  height: 50px;
+  width: 50px;
+}
+
+.attachmentsField .icons-wrapper .icon .icon-name {
+  font-size: 14px;
+  width: 80px;
+ 
 }
