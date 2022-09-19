@@ -645,8 +645,9 @@ textarea::-webkit-scrollbar{
   justify-content: end;
   flex-direction: row-reverse;
   margin: 5px 10px 10px 17px;
-  height: 50%;
+  height: 84px;
   width: 20%;
+  flex-grow: 1 1 130px;
 }
 
 .attachmentsField .icons-wrapper .icon .icon-image img{

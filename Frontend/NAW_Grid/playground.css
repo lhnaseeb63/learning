@@ -1,0 +1,30 @@
+body {
+    background-color: #ffcb5c2f;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.container {
+    border: 5px solid #ffcc5c;
+    display: flex;
+    
+}
+
+.home{
+    background-color: rgb(164, 205, 255);
+    padding: 10px;
+
+    flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 5;
+}
+
+.logout {
+    background-color: pink;
+    padding: 10px;
+
+    flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 1;
+}

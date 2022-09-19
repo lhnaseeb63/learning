@@ -72,6 +72,32 @@ textarea.addEventListener('keyup', (e) => {
   textareaGrid.style.height = `${scHeight}px`;
 });
 
+// --------------------------------------------------------------------- Code to make Attachments Container expand with input
+const attachmentsBox = document.querySelector('.icons-wrapper');
+const attachmentsGrid = document.querySelector('.attachmentsField');
+const iconsList = document.querySelectorAll('.icon');
+const originalBoxHeight = 200;
+const iconHeight = 98; //icon height (84) + padding-bottom (14)
+
+expandAttachmentsBox();
+
+function expandAttachmentsBox() {
+  console.log('AttachmentsBox');
+  console.log(iconsList.length);
+  if (iconsList.length > 7) {
+    console.log('attachments box height:');
+    attachmentsBox.style.height = `${originalBoxHeight}px`;
+    console.log('Original height:  ' + attachmentsBox.style.height);
+
+    const numberOfAdditionalRows = Math.floor(iconsList.length / 4) - 1;
+    const test = iconHeight * numberOfAdditionalRows;
+    console.log('Additional Height:  ' + test);
+    console.log('Number of Additional Rows:  ' + numberOfAdditionalRows);
+    attachmentsBox.style.height = `${originalBoxHeight + iconHeight * numberOfAdditionalRows}px`;
+    console.log('New Height:   ' + attachmentsBox.style.height);
+  }
+}
+
 //----------------------------------------------------------------------------------------------------- Nav Bar Code
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
@@ -105,8 +131,12 @@ function changeGridBodySize() {
   if (sidebar.classList.contains('open')) {
     gridBody.style.width = `calc(100% - ${sidebarOpenSize}px)`;
     gridBody.style.transition = 'all 0.5s ease';
+    // attachmentsBox.style.backgroundColor = 'pink';
+    attachmentsBox.style.width = '600px';
   } else {
     gridBody.style.width = `calc(100% - ${sideBarClosedSize}px)`;
+    // attachmentsBox.style.backgroundColor = 'yellow';
+    attachmentsBox.style.width = '600px';
   }
 }
 
