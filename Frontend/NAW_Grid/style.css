@@ -183,6 +183,18 @@ main {
   .sidebar li a.list-link:hover{
     background: #FFF;
   }
+
+.sidebar li a.list-link .links_name_svg{
+  height: 23px;
+  opacity: 0;
+}
+.sidebar.open li a.list-link .links_name_svg {
+  height: 20px;
+  padding-right: 35px;
+  pointer-events: auto;
+  opacity: 1;
+}
+
   .sidebar li a.list-link .links_name{
     color: #fff;
     font-size: 17px;
