@@ -2,7 +2,7 @@ console.log("I'm in");
 
 const labels = document.querySelectorAll('.label');
 const fields = document.querySelectorAll('.input');
-const buttons = document.querySelectorAll('.btn');
+const attachButtons = document.querySelectorAll('.attach-button');
 let labelDivArray = [];
 let temp = [];
 let lastClicked;
@@ -48,15 +48,16 @@ fields.forEach((field, idx) => {
   });
 });
 
-buttons.forEach((btn) => {
+attachButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
-    if (btn.parentNode.classList[1].includes(labels[9].classList[1])) {
+    console.log(btn.parentNode.parentNode.classList[1]);
+    if (btn.parentNode.parentNode.classList[1].includes(labels[9].classList[1])) {
       labels[9].classList.add('active');
     }
-  });
 
-  btn.addEventListener('focusout', () => {
-    labels[9].classList.remove('active');
+    setTimeout(() => {
+      labels[9].classList.remove('active');
+    }, 1000);
   });
 });
 

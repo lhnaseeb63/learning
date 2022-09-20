@@ -584,6 +584,7 @@ textarea::-webkit-scrollbar{
   align-items: start;
   width: 20%;
   position: relative;
+  margin-top: 20px;
 }
 
 .attachmentsField .attach-buttons-wrapper .attach-button{
@@ -627,7 +628,7 @@ textarea::-webkit-scrollbar{
 
 .attachmentsField .attach-buttons-wrapper .attach-button:active {
   box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
-  /* height: 40px; it shifts the button below up and i dont know how to fix it*/
+  /* height: 40px; it shifts the button below up and i don't know how to fix it*/
   transform: translateY(4px);
 }
 
@@ -635,7 +636,7 @@ textarea::-webkit-scrollbar{
   display: flex;
   flex-wrap: wrap;
   justify-content: end;
-  width: 80%;
+  width: 600px;
   height: 200px;
   border: rgba(15, 15, 15, 0.2) 2px dashed;
   border-radius: 5px;
