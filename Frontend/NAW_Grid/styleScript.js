@@ -72,31 +72,41 @@ textarea.addEventListener('keyup', (e) => {
   textareaGrid.style.height = `${scHeight}px`;
 });
 
-// --------------------------------------------------------------------- Code to make Attachments Container expand with input
+// -------------------------------------------------------------------------------------- Code for Attachments Container
 const attachmentsBox = document.querySelector('.icons-wrapper');
 const attachmentsGrid = document.querySelector('.attachmentsField');
 const iconsList = document.querySelectorAll('.icon');
+const iconsNameEls = document.querySelectorAll('.icon-name');
+const iconsToolTips = document.querySelectorAll('.icon-tooltip');
 const originalBoxHeight = 200;
 const iconHeight = 98; //icon height (84) + padding-bottom (14)
 
 expandAttachmentsBox();
 
+//  make Attachments Container expand with input
 function expandAttachmentsBox() {
-  console.log('AttachmentsBox');
-  console.log(iconsList.length);
   if (iconsList.length > 7) {
-    console.log('attachments box height:');
-    attachmentsBox.style.height = `${originalBoxHeight}px`;
-    console.log('Original height:  ' + attachmentsBox.style.height);
-
     const numberOfAdditionalRows = Math.floor(iconsList.length / 4) - 1;
-    const test = iconHeight * numberOfAdditionalRows;
-    console.log('Additional Height:  ' + test);
-    console.log('Number of Additional Rows:  ' + numberOfAdditionalRows);
     attachmentsBox.style.height = `${originalBoxHeight + iconHeight * numberOfAdditionalRows}px`;
-    console.log('New Height:   ' + attachmentsBox.style.height);
   }
 }
+
+// shorten file name on DOM and have tooltip display full name
+iconsNameEls.forEach((icon, idx) => {
+  let iconName = icon.innerHTML;
+  let firstHalf = [];
+  let dots = '...';
+  let newName;
+
+  firstHalf = iconName.slice(0, 7);
+
+  newName = firstHalf.concat(dots);
+
+  icon.textContent = newName;
+
+  // overwrite the corresponding tooltip
+  iconsToolTips[idx].textContent = iconName;
+});
 
 //----------------------------------------------------------------------------------------------------- Nav Bar Code
 let sidebar = document.querySelector('.sidebar');

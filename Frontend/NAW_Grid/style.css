@@ -187,6 +187,8 @@ main {
 .sidebar li a.list-link .links_name_svg{
   height: 23px;
   opacity: 0;
+  transition: 0.4s;
+  pointer-events: none;
 }
 .sidebar.open li a.list-link .links_name_svg {
   height: 20px;
@@ -195,21 +197,7 @@ main {
   opacity: 1;
 }
 
-  .sidebar li a.list-link .links_name{
-    color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.4s;
-  }
-  .sidebar.open li a.list-link .links_name{
-    opacity: 1;
-    pointer-events: auto;
-    padding-right: 35px;
-  }
-  .sidebar li a.list-link:hover .links_name,
+  .sidebar li a.list-link:hover .links_name_svg,
   .sidebar li a.list-link:hover i{
     transition: all 0.5s ease;
     color: var(--primary-grey);
@@ -660,6 +648,7 @@ textarea::-webkit-scrollbar{
   height: 84px;
   width: 20%;
   flex-grow: 1 1 130px;
+  position: relative;
 }
 
 .attachmentsField .icons-wrapper .icon .icon-image img{
@@ -670,5 +659,27 @@ textarea::-webkit-scrollbar{
 .attachmentsField .icons-wrapper .icon .icon-name {
   font-size: 14px;
   width: 80px;
- 
+}
+
+.attachmentsField .icons-wrapper .icon .icon-tooltip {
+  position: absolute;
+  height: 35px;
+  padding: 2px 5px;
+  top: 0;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  line-height: 35px;
+  text-align: center;
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.attachmentsField .icons-wrapper .icon:hover .icon-tooltip {
+  transition: all 0.3s ease;
+  top: 65%;
+  opacity: 1;
+
 }
