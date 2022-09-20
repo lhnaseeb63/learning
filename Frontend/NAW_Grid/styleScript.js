@@ -102,6 +102,10 @@ function expandAttachmentsBox() {
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
 let searchBtn = document.querySelector('.bx-search');
+// let right_space = document.querySelector('.right_space');
+// let left_space = document.querySelector('.left_space');
+let longLabel = document.querySelector('.rep');
+let grid_template_columns = document.querySelector('.--template-insert');
 let gridBody = document.querySelector('.gridBody');
 let dateEl = document.querySelector('.date');
 let timeEl = document.querySelector('.time');
@@ -131,11 +135,10 @@ function changeGridBodySize() {
   if (sidebar.classList.contains('open')) {
     gridBody.style.width = `calc(100% - ${sidebarOpenSize}px)`;
     gridBody.style.transition = 'all 0.5s ease';
-    // attachmentsBox.style.backgroundColor = 'pink';
+    longLabel.style.width = '251px';
     attachmentsBox.style.width = '600px';
   } else {
     gridBody.style.width = `calc(100% - ${sideBarClosedSize}px)`;
-    // attachmentsBox.style.backgroundColor = 'yellow';
     attachmentsBox.style.width = '600px';
   }
 }
