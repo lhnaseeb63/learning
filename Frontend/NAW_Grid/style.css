@@ -355,7 +355,7 @@ main {
 .--template-buttons, 
 .field,
 .label {
-    padding: 15px;
+    padding: 15px 15px 15px 0;
 }
 
 .--template-header{
@@ -598,7 +598,7 @@ textarea::-webkit-scrollbar{
   margin: 0 10px 20px 10px;
   border-radius: 8px;
   height: 50px;
-  width: 120px;
+  width: 150px;
   box-shadow: inset 0 -4px 0 0 var(--secondary-grey-buttons-dropShadow);
   transition: all 0.1s ease;
   padding: 5px 5px 8px 5px;
@@ -611,6 +611,12 @@ textarea::-webkit-scrollbar{
 
 .attachmentsField .attach-buttons-wrapper .attach-button label{
   cursor: pointer;
+  margin-right: 5px;
+}
+
+.attachmentsField .attach-buttons-wrapper .attach-button span{
+  cursor: pointer;
+  margin-right: 5px;
 }
 
 .attachmentsField .attach-buttons-wrapper .attach-button:hover{
@@ -637,6 +643,7 @@ textarea::-webkit-scrollbar{
   /* border-color:rgb(0, 50, 70) ; */
   border-width: 2px;
   padding: 14px;
+  margin-left: 40px;
 }
 
 .attachmentsField .icons-wrapper .icon {

@@ -145,7 +145,7 @@ function changeGridBodySize() {
   if (sidebar.classList.contains('open')) {
     gridBody.style.width = `calc(100% - ${sidebarOpenSize}px)`;
     gridBody.style.transition = 'all 0.5s ease';
-    longLabel.style.width = '251px';
+    longLabel.style.width = '250px';
     attachmentsBox.style.width = '600px';
   } else {
     gridBody.style.width = `calc(100% - ${sideBarClosedSize}px)`;
