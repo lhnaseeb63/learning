@@ -659,6 +659,17 @@ textarea::-webkit-scrollbar{
   position: relative;
 }
 
+.attachmentsField .icons-wrapper .icon .icon-delete {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+.attachmentsField .icons-wrapper .icon .icon-delete:hover{
+  cursor: pointer;
+  background-color: pink;
+}
+
 .attachmentsField .icons-wrapper .icon .icon-image img{
   height: 50px;
   width: 50px;

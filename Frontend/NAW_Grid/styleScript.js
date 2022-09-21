@@ -79,8 +79,11 @@ const attachmentsGrid = document.querySelector('.attachmentsField');
 const iconsList = document.querySelectorAll('.icon');
 const iconsNameEls = document.querySelectorAll('.icon-name');
 const iconsToolTips = document.querySelectorAll('.icon-tooltip');
+const deleteIcons = document.querySelectorAll('.icon-delete');
 const originalBoxHeight = 200;
 const iconHeight = 98; //icon height (84) + padding-bottom (14)
+let numberOfIcons = iconsList.length;
+let attachmentsBoxHeight;
 
 expandAttachmentsBox();
 
@@ -88,7 +91,8 @@ expandAttachmentsBox();
 function expandAttachmentsBox() {
   if (iconsList.length > 7) {
     const numberOfAdditionalRows = Math.floor(iconsList.length / 4) - 1;
-    attachmentsBox.style.height = `${originalBoxHeight + iconHeight * numberOfAdditionalRows}px`;
+    attachmentsBoxHeight = originalBoxHeight + iconHeight * numberOfAdditionalRows;
+    attachmentsBox.style.height = `${attachmentsBoxHeight}px`;
   }
 }
 
@@ -109,12 +113,31 @@ iconsNameEls.forEach((icon, idx) => {
   iconsToolTips[idx].textContent = iconName;
 });
 
+// delete icon from DOM when user clicks 'x' and shrink attachments box if need be
+deleteIcons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    btn.parentNode.remove();
+    numberOfIcons--;
+    shrinkAttachmentsBox();
+  });
+  // TODO: what if the user adds more files after deleting some? Need to accommodate for that.
+});
+
+function shrinkAttachmentsBox() {
+  if (numberOfIcons % 4 == 0 && numberOfIcons < iconsList.length && numberOfIcons >= 8) {
+    const numberOfRowsToRemove = Math.ceil((iconsList.length - numberOfIcons) / 4);
+    attachmentsBox.style.height = `${attachmentsBoxHeight - iconHeight * numberOfRowsToRemove}px`;
+  }
+}
+
+function numRowsToRemove(iconsOnDOM, iconsInHTML) {
+  return Math.ceil((iconsInHTML - iconsOnDOM) / 4);
+}
+
 //----------------------------------------------------------------------------------------------------- Nav Bar Code
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
 let searchBtn = document.querySelector('.bx-search');
-// let right_space = document.querySelector('.right_space');
-// let left_space = document.querySelector('.left_space');
 let longLabel = document.querySelector('.rep');
 let grid_template_columns = document.querySelector('.--template-insert');
 let gridBody = document.querySelector('.gridBody');
