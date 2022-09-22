@@ -555,9 +555,66 @@ textarea::-webkit-scrollbar{
 .nopField{
     grid-area: nopField;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .typeField{
     grid-area: typeField;
+    display: flex;
+    justify-content: end;
 }
+.typeField .type-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  /* background-color: aqua; */
+}
+.typeField .type-wrapper .type {
+  margin: 3px 3px 3px 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.typeField .type-wrapper .type input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  top: 0;
+  right: -30px;
+  height: 25px;
+  width: 25px;
+
+  background-color: rgba(126, 173, 192, 0.329);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.typeField .type-wrapper .type input[type="radio"]::after{
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900; 
+  content: "\f111";
+  font-size: 12px;
+  color: white;
+  display: none;
+}
+
+.typeField .type-wrapper .type input[type="radio"]:hover{
+  background-color: #6b899e;
+}
+
+.typeField .type-wrapper .type input[type="radio"]:checked{
+  background-color: var(--secondary-grey);
+}
+
+.typeField .type-wrapper .type input[type="radio"]:checked::after{
+  display: block;
+}
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .internalField{
@@ -621,8 +678,6 @@ textarea::-webkit-scrollbar{
   display: block;
 }
 
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .thirdPartiesField{
     grid-area: thirdPartiesField;
 }
@@ -706,6 +761,7 @@ textarea::-webkit-scrollbar{
   border-width: 2px;
   padding: 14px;
   margin-left: 40px;
+  width: 600px;
 }
 
 .attachmentsField .icons-wrapper .icon {

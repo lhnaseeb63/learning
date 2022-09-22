@@ -142,6 +142,21 @@ function numRowsToRemove(iconsOnDOM, iconsInHTML) {
   return Math.ceil((iconsInHTML - iconsOnDOM) / 4);
 }
 
+//----------------------------------------------------------------------------------------------------- Radio Buttons Code
+// let radioBtn = document.querySelector('.radioBtn');
+
+// $('.radioBtn').dblclick(function () {
+//   if ($(this).is(':checked')) {
+//     $(this).removeAttr('checked');
+//   }
+// });
+
+$(document).on('dblclick', '.radioBtn', function () {
+  if (this.checked) {
+    $(this).prop('checked', false);
+  }
+});
+
 //----------------------------------------------------------------------------------------------------- Nav Bar Code
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
