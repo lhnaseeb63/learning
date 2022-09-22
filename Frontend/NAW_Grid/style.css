@@ -562,29 +562,27 @@ textarea::-webkit-scrollbar{
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .internalField{
     grid-area: internalField;
-    margin-right: 20px;
 }
 
-.internalField .internalDepts-wrapper{
+.recipients-wrapper{
   display: flex;
   width: 830px;
   flex-wrap: wrap;
   justify-content: end;
 }
 
-.internalField .internalDepts-wrapper .internalDept{
+.recipients-wrapper .recipient{
   display: flex;
-  /* flex-direction: row-reverse; */
   align-items: start;
   justify-content: end;
   width: 255px;
-  height: 100%px;
-  /* background-color: aqua; */
-  margin: 5px 10px;
+  height: 100%;
+  margin: 5px 10px 15px 10px;
+  padding: 2px;
   position: relative;
 }
 
-.internalField .internalDepts-wrapper .internalDept input[type="checkbox"] {
+.recipients-wrapper .recipient input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
   position: absolute;
@@ -592,7 +590,8 @@ textarea::-webkit-scrollbar{
   right: -30px;
   height: 25px;
   width: 25px;
-  background-color:#eee;
+  /* background-color:#eee; */
+  background-color: rgba(126, 173, 192, 0.329);
   border-radius: 2px;
   cursor: pointer;
   display: flex;
@@ -601,7 +600,7 @@ textarea::-webkit-scrollbar{
   outline: none;
 }
 
-.internalField .internalDepts-wrapper .internalDept input[type="checkbox"]::after{
+.recipients-wrapper .recipient input[type="checkbox"]::after{
   font-family: "Font Awesome 5 Free"; 
   font-weight: 900; 
   content: "\f00c";
@@ -610,15 +609,15 @@ textarea::-webkit-scrollbar{
   display: none;
 }
 
-.internalField .internalDepts-wrapper .internalDept input[type="checkbox"]:hover{
-  background-color: #a5a5a5;
+.recipients-wrapper .recipient input[type="checkbox"]:hover{
+  background-color: #6b899e;
 }
 
-.internalField .internalDepts-wrapper .internalDept input[type="checkbox"]:checked{
+.recipients-wrapper .recipient input[type="checkbox"]:checked{
   background-color: var(--secondary-grey);
 }
 
-.internalField .internalDepts-wrapper .internalDept input[type="checkbox"]:checked::after{
+.recipients-wrapper .recipient input[type="checkbox"]:checked::after{
   display: block;
 }
 
@@ -626,7 +625,6 @@ textarea::-webkit-scrollbar{
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .thirdPartiesField{
     grid-area: thirdPartiesField;
-    margin-right: 20px;
 }
 .notesField{
     grid-area: notesField;

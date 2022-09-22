@@ -127,6 +127,7 @@ function shrinkAttachmentsBox() {
   if (numberOfIcons % 4 == 0 && numberOfIcons < iconsList.length && numberOfIcons >= 8) {
     const numberOfRowsToRemove = Math.ceil((iconsList.length - numberOfIcons) / 4);
     attachmentsBox.style.height = `${attachmentsBoxHeight - iconHeight * numberOfRowsToRemove}px`;
+    attachmentsBox.style.transition = 'all 0.5s ease';
   }
 }
 
