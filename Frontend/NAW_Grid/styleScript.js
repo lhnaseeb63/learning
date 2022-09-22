@@ -24,7 +24,7 @@ function setClassArrays() {
 
 // field is active, make corresponding label bold by adding active class
 // Check class name for matching string. Only make bold if they match.
-fields.forEach((field, idx) => {
+fields.forEach((field) => {
   field.addEventListener('focusin', () => {
     if (field.nodeName == 'TEXTAREA') {
       labelDivArray.forEach((label, i) => {
@@ -34,6 +34,13 @@ fields.forEach((field, idx) => {
         }
       });
     } else if (field.classList.contains('checkbox') && field.nodeName == 'INPUT') {
+      labelDivArray.forEach((label, i) => {
+        if (field.parentNode.parentNode.parentNode.classList[1].includes(label)) {
+          labels[i].classList.add('active');
+          lastClicked = labels[i];
+        }
+      });
+    } else if (field.classList.contains('radioBtn') && field.nodeName == 'INPUT') {
       labelDivArray.forEach((label, i) => {
         if (field.parentNode.parentNode.parentNode.classList[1].includes(label)) {
           labels[i].classList.add('active');
@@ -141,21 +148,6 @@ function shrinkAttachmentsBox() {
 function numRowsToRemove(iconsOnDOM, iconsInHTML) {
   return Math.ceil((iconsInHTML - iconsOnDOM) / 4);
 }
-
-//----------------------------------------------------------------------------------------------------- Radio Buttons Code
-// let radioBtn = document.querySelector('.radioBtn');
-
-// $('.radioBtn').dblclick(function () {
-//   if ($(this).is(':checked')) {
-//     $(this).removeAttr('checked');
-//   }
-// });
-
-$(document).on('dblclick', '.radioBtn', function () {
-  if (this.checked) {
-    $(this).prop('checked', false);
-  }
-});
 
 //----------------------------------------------------------------------------------------------------- Nav Bar Code
 let sidebar = document.querySelector('.sidebar');
