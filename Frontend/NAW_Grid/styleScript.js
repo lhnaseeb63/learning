@@ -33,6 +33,13 @@ fields.forEach((field, idx) => {
           lastClicked = labels[i];
         }
       });
+    } else if (field.classList.contains('checkbox') && field.nodeName == 'INPUT') {
+      labelDivArray.forEach((label, i) => {
+        if (field.parentNode.parentNode.parentNode.classList[1].includes(label)) {
+          labels[i].classList.add('active');
+          lastClicked = labels[i];
+        }
+      });
     } else {
       labelDivArray.forEach((label, i) => {
         if (field.parentNode.classList[1].includes(label)) {
