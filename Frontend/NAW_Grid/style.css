@@ -20,6 +20,7 @@ body {
    font-family: 'Tajawal', sans-serif;
     font-size: 20px;
     overflow: visible;
+    
 }
 
 .grid {
@@ -98,9 +99,7 @@ main {
   }
   .sidebar .logo-details .logo_name{
     width: 200px;
-    /* margin-top: 0px; */
     margin-left: 35px;
-    /* justify-content: end; */
     opacity: 0;
     transition: all 0.4s ease;
   }
@@ -240,11 +239,9 @@ main {
     font-weight: 400;
     color: #fff;
     white-space: nowrap;
-  }
-  .sidebar li.profile .date-time-wrapper{
     display: flex;
-    font-size: 15px;
   }
+  
 
   .sidebar li.profile .date-time-wrapper .date{
     margin-right: 10px;
@@ -256,7 +253,7 @@ main {
     height: 60px; 
     border-radius: 0px;
     transform: translateY(-95%) translateX(-14px);
-    background: var(--secondary-grey);
+    /* background: var(--secondary-grey); */
     transition: all 0.5s ease;
   }
 
@@ -514,6 +511,7 @@ textarea::-webkit-scrollbar{
 }
 .rep{
     grid-area:rep ;
+    justify-self: end;
 }
 .title{
     grid-area: title;
@@ -556,7 +554,6 @@ textarea::-webkit-scrollbar{
     grid-area: nopField;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .typeField{
     grid-area: typeField;
     display: flex;
@@ -615,10 +612,9 @@ textarea::-webkit-scrollbar{
   display: block;
 }
 
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  Work here now */
 .internalField{
     grid-area: internalField;
+    justify-self: end;
 }
 
 .recipients-wrapper{
@@ -680,6 +676,7 @@ textarea::-webkit-scrollbar{
 
 .thirdPartiesField{
     grid-area: thirdPartiesField;
+    justify-self: end;
 }
 .notesField{
     grid-area: notesField;
@@ -818,3 +815,188 @@ textarea::-webkit-scrollbar{
   opacity: 1;
 
 }
+
+/* 1280 px and above */
+@media screen and (min-width: 1280px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* current */
+@media screen and (min-width: 1600px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Work Here */
+
+/* Right monitor - W: 1920px, H: 937px*/
+@media screen and (min-width: 1900px) {
+  body {
+    background-color: aqua;
+    font-size: 24px;
+  }
+  /* TODO: 
+    nav tooltip sizes, 
+    label boldening size, 
+    font on attachBox icons, 
+    font on button bar, 
+    nav icons too far left,
+    spacing between checkbox items,
+    sizing of fields when sidebar is open,
+    hover links, replace svg when hovering to inverted colors
+    */
+
+    /*---------------------------- Navigation rewrite */
+    .sidebar{
+      width: 100px;
+    }
+    .sidebar.open{
+      width: 300px;
+    }
+
+    .sidebar .logo-details{
+      height: 80px;
+    }
+
+    .sidebar .logoWrapper{
+      align-items: center;
+      margin-bottom: 35px;
+      transition: all 0.5s ease;
+    }
+
+    .sidebar.open .logoWrapper{
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .sidebar .logoWrapper .state-of-kuwait-logo{
+      height: 70px;
+      width: 70px;
+    }
+
+    .sidebar.open .logoWrapper .state-of-kuwait-logo{
+      transform: translateX(0%);
+      height: 90px;
+      width: 90px;    
+    }
+    .sidebar .logo-details .logo_name{
+      width: 245px;
+      padding-left:10px;
+      margin-left: 35px;
+    }
+    .sidebar .logo-details #btn{
+      font-size: 32px;
+      transform: translateX(10px) translateY(-32px);
+    }
+    
+    .sidebar li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* fixes tooltip location */
+    }
+
+    .sidebar.open li a i {
+      position: relative;
+    }
+    
+    .sidebar li i{
+      height: 70px;
+      font-size: 28px;
+      line-height: 70px;
+    }
+
+    .sidebar li a.list-link i{
+      transform: translateX(14px);
+      /* when sidebar is closed centers icon */
+    }
+
+    .sidebar.open li a.list-link .links_name_svg {
+      height: 25px;
+      padding-right: 35px;
+      pointer-events: auto;
+      opacity: 1;
+    }
+    /* ------------------------------------------ link tooltips */ 
+    .sidebar li .tooltip{
+      font-size: 24px;
+      font-weight: 400;
+      
+    }
+    
+    .sidebar li:hover .tooltip{
+      top: 40%;
+    }
+
+    /* ------------------------------------------ profile and logout */
+    .sidebar li.profile .profile-details{
+      opacity: 0;
+    }
+
+    .sidebar li.profile {
+      background-color: var(--primary-grey);
+    }
+   
+    .sidebar .profile #log_out{
+      opacity: 1;
+      transform: translateY(0%) translateX(25%);
+      height: 80px;
+      width: 80px;
+      line-height: 80px;
+      
+    }
+
+    .sidebar.open .profile #log_out {
+      width: 20px;
+      height: 80px;
+
+    }
+    .sidebar.open li.profile{
+      width: 300px;
+      height: 90px;
+      opacity: 1;
+      background-color: var(--secondary-grey);
+    }
+
+    .sidebar.open li.profile .profile-details{
+      opacity: 1;
+    }
+    
+    .sidebar li.profile .name{
+      font-size: 24px;
+    }
+
+    .sidebar li.profile .date-time-wrapper{
+      font-size: 21px;
+      
+    }
+    .sidebar li.profile .date-time-wrapper .date{
+      margin-right: 15px;
+    }
+
+    .sidebar.open .profile .log_outWrapper{
+      transform: translateY(-40px) translateX(-8px);
+    }
+
+    /* ----------------------------------- profile and logout tooltip*/
+    .sidebar li.profile .log_outWrapper .exit-link .exit-tooltip{
+      right: 73px;
+      font-size: 24px;
+      height: 40px;
+      width: 122px;
+      line-height: 40px;
+    }
+  
+    .sidebar li.profile .log_outWrapper .exit-link:hover .exit-tooltip{
+      top: 110%;
+    }
+
+   
+}
+
+/* max-width: x amount wide or less */
+/* min-width: x amount wide or more */
+/* can create different style sheets for each. Holy smokes */

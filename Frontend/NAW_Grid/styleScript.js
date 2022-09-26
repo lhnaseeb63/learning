@@ -1,4 +1,6 @@
 console.log("I'm in");
+console.log('Width:  ' + window.innerWidth);
+console.log('Height:  ' + window.innerHeight);
 
 const labels = document.querySelectorAll('.label');
 const fields = document.querySelectorAll('.input');
@@ -162,6 +164,9 @@ let timeEl = document.querySelector('.time');
 let sidebarOpenSize = 250;
 let sideBarClosedSize = 78;
 
+let sidebarOpenSize_1900px = 300;
+let sideBarClosedSize_1900px = 100;
+
 // create array for days and months
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -182,12 +187,22 @@ function menuBtnChange() {
 
 function changeGridBodySize() {
   if (sidebar.classList.contains('open')) {
-    gridBody.style.width = `calc(100% - ${sidebarOpenSize}px)`;
     gridBody.style.transition = 'all 0.5s ease';
-    longLabel.style.width = '250px';
+    if (window.innerWidth > 1900) {
+      gridBody.style.width = `calc(100% - ${sidebarOpenSize_1900px}px)`;
+      longLabel.style.width = `${sidebarOpenSize_1900px}px`;
+    } else {
+      gridBody.style.width = `calc(100% - ${sidebarOpenSize}px)`;
+      longLabel.style.width = `${sidebarOpenSize}px`;
+    }
+
     attachmentsBox.style.width = '600px';
   } else {
-    gridBody.style.width = `calc(100% - ${sideBarClosedSize}px)`;
+    if (window.innerWidth > 1900) {
+      gridBody.style.width = `calc(100% - ${sideBarClosedSize_1900px}px)`;
+    } else {
+      gridBody.style.width = `calc(100% - ${sideBarClosedSize}px)`;
+    }
     attachmentsBox.style.width = '600px';
   }
 }
