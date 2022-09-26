@@ -8,7 +8,7 @@ background-color: white;
 font-size: 26px;
 }
 /* TODO: 
-font on attachBox icons,  
+attachment names too small in attachBox,
 nav icons too far left,
 hover links, replace svg when hovering to inverted colors
 */
@@ -194,13 +194,37 @@ margin: 5px 30px 15px 10px;
   border-radius: 12px;
 }
 
-
-
 .--template-buttons .button:active {
   height: 60px;
   transform: translateY(6px);
 }
 
+/* ------------------------------------------  attach buttons */
+.attachmentsField .attach-buttons-wrapper .attach-button{
+    font-weight: 400;
+    border-radius: 12px;
+    height: 70px;
+    width: 170px;
+    box-shadow: inset 0 -6px 0 0 var(--secondary-grey-buttons-dropShadow);
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button label{
+    margin-right: 10px;
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button span{
+    margin-right: 10px;
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button:hover{
+    box-shadow: inset 0 -6px 0 0 rgb(0, 50, 70);
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button:active {
+    box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
+    transform: translateY(6px);
+  }
+  
 
 /* max-width: x amount wide or less */
 /* min-width: x amount wide or more */
