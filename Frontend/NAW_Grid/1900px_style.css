@@ -9,8 +9,8 @@ font-size: 26px;
 }
 /* TODO: 
 attachment names too small in attachBox,
-nav icons too far left,
-hover links, replace svg when hovering to inverted colors
+hover links, replace svg when hovering to inverted colors,
+attach tooltip breaks to next line at '-'
 */
 
 /*---------------------------- Navigation rewrite */
@@ -74,7 +74,7 @@ line-height: 70px;
 }
 
 .sidebar li a.list-link i{
-transform: translateX(14px);
+transform: translateX(12px);
 /* when sidebar is closed centers icon */
 }
 
@@ -199,7 +199,7 @@ margin: 5px 30px 15px 10px;
   transform: translateY(6px);
 }
 
-/* ------------------------------------------  attach buttons */
+/* ------------------------------------------  attachments */
 .attachmentsField .attach-buttons-wrapper .attach-button{
     font-weight: 400;
     border-radius: 12px;
@@ -223,6 +223,11 @@ margin: 5px 30px 15px 10px;
   .attachmentsField .attach-buttons-wrapper .attach-button:active {
     box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
     transform: translateY(6px);
+  }
+
+  .attachmentsField .icons-wrapper .icon .icon-name {
+    font-size: 16px;
+    width: 80px;
   }
   
 
