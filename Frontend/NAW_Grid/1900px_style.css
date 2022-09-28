@@ -135,11 +135,11 @@ font-size: 24px;
 }
 
 .sidebar li.profile .date-time-wrapper{
-font-size: 21px;
+font-size: 18px;
 
 }
 .sidebar li.profile .date-time-wrapper .date{
-margin-right: 15px;
+margin-right: 10px;
 }
 
 .sidebar.open .profile .log_outWrapper{
