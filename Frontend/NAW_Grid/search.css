@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+.--search-insert{
+    display: grid;
+    /* height: 100%; */
+    grid-template-areas:
+    'searchBar'
+    'results'
+    '--template-buttons'
+    ;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr minmax(1fr) 1.5fr;
+    grid-auto-rows: min-content;
+    border: var(--secondary-grey-content-border) 2px solid; 
+    border-radius: 40px;
+    box-shadow: 8px 8px 5px -2px var(--secondary-grey-content-dropShadow);
+    font-weight: 500;
+    font-family: 'Tajawal', sans-serif;
+    background-color: rgba(127, 214, 247, 0.05);
+    color: rgb(0, 50, 70);
+}
+
+.searchBar,
+.results {
+    padding: 15px 15px 15px 0;
+}
+
+.searchBar {
+    grid-area: searchBar;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.searchBar-wrapper {
+    margin-top: 15px;
+    height: 60px;
+    width: 90%;
+}
+
+.searchBar-input {
+    height: 100%;
+    width: 100%;
+    /* background-color: brown; */
+    background-color:rgba(127,214,247, 0.1);
+    border-radius: 14px;
+    text-align: right;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 24px;
+    outline: none;
+    border: rgba(146, 193, 212, 0.5) 2px solid;
+}
+
+.searchBar-input:active{
+    outline: none;
+
+}
+
+.results {
+    grid-area: results;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.results-wrapper{
+    height: 100px;
+    width: 90%;  
+}
+
+.result{
+    display: flex;
+    /* height: 100%; */
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px;
+    position: relative;
+    border-bottom: rgba(146, 193, 212, 0.25) 2px solid; 
+}
+
+.result .result-data{
+    display: grid;
+    grid-template-areas: 
+    'date_ enum'
+    'department employeeName'
+    ;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    text-align: right;
+}
+
+.date_{
+    grid-area: date_;
+    width: 650px;
+}
+
+.enum{
+    grid-area: enum;
+}
+
+.department{
+    grid-area: department;
+}
+
+.employeeName{
+    grid-area: employeeName;
+}
+
+.select-result{
+    align-self: center;
+}
+
+.select-result input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 25px;
+    width: 25px;
+    background-color: rgba(126, 173, 192, 0.329);
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+  }
+  
+  .select-result input[type="checkbox"]::after{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+    content: "\f00c";
+    font-size: 15px;
+    color: white;
+    display: none;
+  }
+  
+  .select-result input[type="checkbox"]:hover{
+    background-color: #6b899e;
+  }
+  
+  .select-result input[type="checkbox"]:checked{
+    background-color: var(--secondary-grey);
+  }
+  
+  .select-result input[type="checkbox"]:checked::after{
+    display: block;
+  }
+
+.--template-buttons{
+    grid-area: --template-buttons;
+    height: 100%;
+}
+

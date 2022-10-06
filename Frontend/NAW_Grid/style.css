@@ -572,7 +572,8 @@ textarea::-webkit-scrollbar{
   align-items: center;
 }
 
-.typeField .type-wrapper .type input[type="radio"] {
+.typeField .type-wrapper .type input[type="radio"],
+.select-result input[type="radio"]{
   appearance: none;
   -webkit-appearance: none;
   position: absolute;
@@ -590,7 +591,8 @@ textarea::-webkit-scrollbar{
   outline: none;
 }
 
-.typeField .type-wrapper .type input[type="radio"]::after{
+.typeField .type-wrapper .type input[type="radio"]::after,
+.select-result input[type="radio"]::after{
   font-family: "Font Awesome 5 Free"; 
   font-weight: 900; 
   content: "\f111";
@@ -599,15 +601,18 @@ textarea::-webkit-scrollbar{
   display: none;
 }
 
-.typeField .type-wrapper .type input[type="radio"]:hover{
+.typeField .type-wrapper .type input[type="radio"]:hover,
+.select-result input[type="radio"]:hover{
   background-color: #6b899e;
 }
 
-.typeField .type-wrapper .type input[type="radio"]:checked{
+.typeField .type-wrapper .type input[type="radio"]:checked,
+.select-result input[type="radio"]:checked{
   background-color: var(--secondary-grey);
 }
 
-.typeField .type-wrapper .type input[type="radio"]:checked::after{
+.typeField .type-wrapper .type input[type="radio"]:checked::after,
+.select-result input[type="radio"]:checked::after{
   display: block;
 }
 
