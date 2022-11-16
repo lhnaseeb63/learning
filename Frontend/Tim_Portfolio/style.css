@@ -18,7 +18,7 @@ body {
     'sidebar  footer'
     ;
 
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 0.25fr 1.5fr;
     grid-template-rows: 150px 1fr 150px;
 }
 
@@ -43,6 +43,10 @@ nav {
 
 main {
     grid-area: content;
+    position: relative;
+}
+
+.option-1 {
     background-image: linear-gradient(0deg, rgba(247, 247, 247, 1) 23.8%, rgba(252, 221, 221, 1) 92%);
     display: flex;
     flex-direction: column;
@@ -50,6 +54,7 @@ main {
     justify-content: center;
     margin: 0;
     color: black;
+    height: 100%;
 }
 
 .music-container {
@@ -182,3 +187,82 @@ footer {
     grid-area: footer;
 }
 
+/* `````````````````````````````````````````````` Sliding BG */
+.arrow-scroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 63.5vh;
+    overflow: hidden;
+    margin: 0;
+    /* background-image: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80'); */
+    background-position: center center;
+    background-size: cover;
+    transition: 0.4s;
+    z-index: 10;
+}
+
+.arrow-scroll::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    height: 63.5vh;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 11;
+}
+
+.slider-container {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    height: 44.45vh;
+    width:  44.45vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    opacity: 0;
+    height: 63.5vh;
+    width:  100%;
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    /* top: -29vh;
+    left: -15vw; */
+    /* left: -15vw; */
+    /* top: -15vh; */
+    /* transition: 4s ease; */
+    z-index: 12;
+}
+
+.slide.active{
+    opacity: 1;
+}
+
+.arrow{
+    position: fixed;
+    background-color: transparent;
+    padding: 20px;
+    font-size: 30px;
+    border: 2px solid orange;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 11;
+    cursor: pointer;
+}
+
+.arrow:focus{
+    outline:0;
+}
+
+.left-arrow {
+    /* left: calc(15vw - 65px); */
+    left: 21vw;
+}
+
+.right-arrow {
+    right: calc(21vw - 115px);
+}
