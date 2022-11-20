@@ -108,45 +108,69 @@
 // audio.addEventListener('ended', nextSong);
 
 /* `````````````````````````````````````````````` Sliding BG */
-const body = document.querySelector('.arrow-scroll');
-const slides = document.querySelectorAll('.slide');
+// const body = document.querySelector('.content-wrapper');
+const wrapper = document.querySelector('.content-wrapper');
+const content = document.querySelectorAll('.content');
 const leftBtn = document.getElementById('left');
 const rightBtn = document.getElementById('right');
 
-let activeSlide = 0;
+console.log(content);
+
+let activeContent = 0;
 
 rightBtn.addEventListener('click', () => {
-  activeSlide++;
+  activeContent++;
 
-  if (activeSlide > slides.length - 1) {
-    activeSlide = 0;
+  if (activeContent > content.length - 1) {
+    activeContent = 0;
   }
-
-  setBgToBody();
+  console.log(activeContent);
   setActiveSlide();
 });
 
 leftBtn.addEventListener('click', () => {
-  activeSlide--;
+  activeContent--;
 
-  if (activeSlide < 0) {
-    activeSlide = slides.length - 1;
+  if (activeContent < 0) {
+    activeContent = content.length - 1;
   }
-
-  setBgToBody();
+  console.log(activeContent);
   setActiveSlide();
 });
 
-setBgToBody();
+setContent();
 
-function setBgToBody() {
-  body.style.backgroundImage = slides[activeSlide].style.backgroundImage;
+function setContent() {
+  console.log('set content');
 }
 
 function setActiveSlide() {
-  slides.forEach((slide) => {
-    slide.classList.remove('active');
+  content.forEach((option) => {
+    option.classList.remove('active');
   });
 
-  slides[activeSlide].classList.add('active');
+  content[activeContent].classList.add('active');
+}
+
+// setBgToBody();
+
+// function setBgToBody() {
+//   body.style.backgroundImage = slides[activeContent].style.backgroundImage;
+// }
+
+// -------------------------------expanding cards
+const panels = document.querySelectorAll('.panel');
+
+panels.forEach((panel) => {
+  panel.addEventListener('click', () => {
+    console.log('clicked');
+    removeActivePanelClasses();
+    panel.classList.add('activePanel');
+  });
+});
+
+function removeActivePanelClasses() {
+  panels.forEach((panel) => {
+    panel.classList.remove('activePanel');
+  });
 }
