@@ -203,22 +203,24 @@ footer {
     outline:0;
 }
 
+.active {
+    transition: opacity 0.3s ease-in;
+}
 .content {
     height: 90%;
     width: 80%;
-    transition: opacity 0.4s ease-in;
 }
 
 .content.first {
     background-color: #fe8daa;
     display: none;
-    opacity: 0;
+    opacity: 0;  
 }
 
 .content.second {
     background-color: violet;
-   display: none;
-   opacity: 0;
+    display: none;
+    opacity: 0;
 }
 
 .content.third {
@@ -289,7 +291,7 @@ footer {
 
 .panel.activePanel h3 {
     opacity: 1;
-    transition: opacity 0.3s ease-in 0.4s;
+    
 }
 
 /* if screen under 480 */
@@ -302,4 +304,90 @@ footer {
     .panel:nth-of-type(5){
         display: none;
     }
+}
+
+/* ===============================================img slider */
+.img-slider,
+.slider,
+.slides {
+    height: 100%;
+    width: 100%;
+}
+
+.img-slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #23e3c9;
+    /* width: 800px;
+    height: 500px; */
+}
+
+.slider {
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+    position: relative;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    height: 500px;
+    width: 800px;
+    transition: 2s;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* css for manual navigation */
+
+.nav-manual {
+    position: absolute;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-self:flex-end;
+    margin-bottom: 40px;
+}
+
+.manual-btn {
+    border: 2px solid #40D3DC;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    margin-left: 40px;
+}
+
+.manual-btn:hover{
+    background-color: #40D3DC;
+}
+
+#radio1:checked ~ .first-slide {
+    margin-left:0;
+}
+
+#radio2:checked ~ .first-slide {
+    margin-left:-20%;
+}
+
+#radio3:checked ~ .first-slide {
+    margin-left:-40%;
+}
+
+#radio4:checked ~ .first-slide {
+    margin-left:-60%;
 }
