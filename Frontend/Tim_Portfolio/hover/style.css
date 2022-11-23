@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;500&display=swap');
+
+body {
+    background-color: rgb(20,20,20);
+    margin: 0;
+}
+
+#menu {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item {
+    color: white;
+    display: block;
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-family: 'Ibarra Real Nova', serif;
+    text-decoration: none;
+    padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+}
+
+#menu-items {
+    margin-left: clamp(4rem, 20vw, 48rem);
+    z-index: 2;
+}
+
+/* ---------------- get inactive links to fade out on hover */
+
+/* reduce opacity of all links when hovered */
+/* #A > .B: only applies to direct children of #A */
+#menu-items:hover > .menu-item{
+    opacity: 0.3;
+}
+
+/* override for currently hovered link  */
+#menu-items:hover > .menu-item:hover {
+    opacity: 1;
+}
+
+#background-pattern {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1) 9%, 
+      transparent 9%
+    );
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+    height: 100vh;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    transition: opacity 800ms ease, 
+      background-size 800ms ease,
+      background-position 800ms ease;
+    width: 100vw;
+    z-index: 1;
+  }
+
+/* reduce pattern size and opacity w hover */
+#menu-items:hover ~ #background-pattern {
+    background-size: 11vmin 11vmin;
+    opacity: 0.5;
+}
+
+/* pan pattern up and down w hover */
+/* when we hover away, want it to return to current
+position, not default position.  */
+/* check the js for the dataset.activeIndex */
+#menu[data-active-index="0"] > #background-pattern {
+    background-position: 0% -25%;
+  }
+  
+  #menu[data-active-index="1"] > #background-pattern {
+    background-position: 0% -50%;
+  }
+  
+  #menu[data-active-index="2"] > #background-pattern {
+    background-position: 0% -75%;
+  }
+  
+  #menu[data-active-index="3"] > #background-pattern {
+    background-position: 0% -100%;
+  }
+
+  /* adding a background image */
+ /* #background-img {
+    height: 100%;
+    width: 100%;
+    background-image: url('https://images.unsplash.com/photo-1485579149621-3123dd979885?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80');
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+
+    background-position: center 40%;
+    background-size: 110vmax;
+    opacity: 0.15;
+
+    transition: opacity 800ms ease, 
+      background-size 800ms ease,
+      background-position 800ms ease;
+  } */
+
+  #background-img {
+    background-image: url("https://images.unsplash.com/photo-1485579149621-3123dd979885?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80");
+    background-position: center 40%;
+    background-size: 110vmax;
+    height: 100%;
+    left: 0px;  
+    opacity: 0.15;
+    position: absolute;
+    top: 0px;
+    transition: opacity 800ms ease,
+      background-size 800ms ease,
+      background-position 800ms ease;
+    width: 100%;
+    z-index: 0;
+  }
+  
+  #menu-items:hover ~ #background-img {
+    background-size: 100vmax;
+    opacity: 0.1;
+  }
+
+  #menu[data-active-index="0"] > #background-img {
+    background-position: center 45%;
+  }
+  
+  #menu[data-active-index="1"] > #background-img {
+    background-position: center 50%;
+  }
+  
+  #menu[data-active-index="2"] > #background-img {
+    background-position: center 55%;
+  }
+  
+  #menu[data-active-index="3"] > #background-img {
+    background-position: center 60%;
+  }

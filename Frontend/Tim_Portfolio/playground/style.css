@@ -391,3 +391,14 @@ footer {
 #radio4:checked ~ .first-slide {
     margin-left:-60%;
 }
+
+
+.slider-playground {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active1 {
+    transition: opacity 0.3s ease-in;
+}
