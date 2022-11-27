@@ -9,10 +9,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* align-items: end; */
     color: white;
     font-family: 'Ibarra Real Nova', serif;
     position: relative;
+    /* flex-wrap: wrap; */
 }
 
 header {
@@ -58,7 +58,6 @@ footer {
     margin-bottom: 20px;
     width: 250px;
 }
-
 
 #menu {
     display: flex;
@@ -173,4 +172,51 @@ position, not default position.  */
   
   #menu[data-active-index="3"] > #background-img {
     background-position: center 60%;
+  }
+
+  /* ======================================================= Reels */
+  .reels-wrapper {
+    background-color: rgb(20,20,20);
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+    padding:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;  
+    max-width: 950px;
+    width: calc(100% - 20px);
+  }
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 260px;
+    width: 300px;
+    cursor: pointer;   
+    position: relative; 
+  }
+
+  .card::before {
+    content:'';
+    background: radial-gradient(
+        800px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.06),
+        transparent 40%
+    );
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top:0px;
+    z-index: 2;
   }
