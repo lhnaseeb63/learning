@@ -2,8 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
 
+:root{
+  --landing-bg-color:rgb(18, 1, 29);
+  --reel-card-bg-color: rgb(20,20,20);
+  --reel-card-color:rgb(23,23,23);
+  --reel-card-color-purple:rgb(47, 14, 69);
+}
+
 body {
-    background-color: rgb(18, 1, 29);
+    background-color: var(--landing-bg-color);
     margin: 0;
     height: 100vh;
     display: flex;
@@ -176,7 +183,7 @@ position, not default position.  */
 
   /* ======================================================= Reels */
   .reels-wrapper {
-    background-color: rgb(20,20,20);
+    background-color: var(--landing-bg-color);
     height: 100vh;
     width: 100vw;
     margin: 0px;
@@ -190,33 +197,179 @@ position, not default position.  */
   #cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;  
+    gap: 25px;  
     max-width: 950px;
     width: calc(100% - 20px);
   }
-
-  .card {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    height: 260px;
-    width: 300px;
-    cursor: pointer;   
-    position: relative; 
+  
+  #cards:hover > .card::after {
+    opacity: 1;
   }
-
-  .card::before {
-    content:'';
-    background: radial-gradient(
-        800px circle at var(--mouse-x) var(--mouse-y),
-        rgba(255, 255, 255, 0.06),
-        transparent 40%
-    );
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    height: 260px;
+    flex-direction: column;
+    position: relative;
+    width: 300px;  
+    overflow: hidden;
+  }
+  
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card::before,
+  .card::after {
     border-radius: inherit;
+    content: "";
     height: 100%;
-    width: 100%;
-    position: absolute;
     left: 0px;
-    top:0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+  }
+  
+  .card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    );
+    z-index: 3;
+  }
+  
+  .card::after {  
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.4),
+      transparent 40%
+    );
+    z-index: 1;
+  }
+  
+  .card > .card-content {
+    background-color: var(--reel-card-color-purple);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    inset: 1px;
+    padding: 10px;
+    position: absolute;
     z-index: 2;
   }
+
+  /* `````````````````````````````````````````````````````Music Player */
+  .music-player-wrapper {
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+  }
+
+  .music-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* x-axis */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .img-container {
+    height: 200px;
+  }
+
+  .img-container img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    /* animation */
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+  }
+
+  .music-container.play .img-container img {
+    animation-play-state: running;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .nav-wrapper {
+    width: 100%;
+    justify-self: end;
+    position: absolute;
+    bottom: 0;
+  }
+  .navigation {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(rgba(47, 14, 69, 0.005), rgb(11, 0, 18));
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  .navigation:hover {
+    opacity: 1;
+  }
+
+   /*  --landing-bg-color:rgb(18, 1, 29);
+  --reel-card-bg-color: rgb(20,20,20);
+  --reel-card-color:rgb(23,23,23);
+  --reel-card-color-purple:rgb(47, 14, 69); 
+  #dfdbdf
+  */
+
+  .action-btn {
+    background-color: rgba(255, 255, 255, 0);
+    border: 0;
+    color: #dfdbdf;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+    transition: color 500ms;
+  }
+
+  .action-btn:hover {
+    color: white;
+  }
+  
+  .action-btn.action-btn-big {
+    color: #cdc2d0;
+    font-size: 30px;
+  }
+
+  .action-btn.action-btn-big:hover {
+    color: white;
+  }
+  
+  .action-btn:focus {
+    outline: 0;
+  }
+
+  .music-info {
+
+  }
+
+ 
