@@ -53,75 +53,161 @@ document.getElementById('cards').onmousemove = (e) => {
  * and its position relative to the viewport.
  */
 
-// ``````````````````````````````````````````````````````````Music Player
-// const musicContainer = document.getElementById('music-container');
-// const playBtn = document.getElementById('play');
-// const prevBtn = document.getElementById('prev');
-// const nextBtn = document.getElementById('next');
+// ``````````````````````````````````````````````````````````Music Players
+const characterDemoContainer = document.getElementById('character-demo-container');
+const narrationDemoContainer = document.getElementById('narration-demo-container');
+const voiceDemoCharacter = document.getElementById('voice-demo-container');
 
-// const audio = document.getElementById('audio');
-// const progress = document.getElementById('progress');
-// const progressContainer = document.getElementById('progress-container');
-// const title = document.getElementById('title');
-// const cover = document.getElementById('cover');
+const characterPlayBtn = document.getElementById('character-play');
+const narrationPlayBtn = document.getElementById('narration-play');
+const voicePlayBtn = document.getElementById('voice-play');
 
-// // Song Titles: need same names on images and mp3s
-// const songs = ['hey', 'summer', 'ukulele'];
+const characterPrevBtn = document.getElementById('character-prev');
+const narrationPrevBtn = document.getElementById('narration-prev');
+const voicePrevBtn = document.getElementById('voice-prev');
 
-// // Keep track of song
-// let songIndex = 2;
+const characterNextBtn = document.getElementById('character-next');
+const narrationNextBtn = document.getElementById('narration-next');
+const voiceNextBtn = document.getElementById('voice-next');
 
-// // Initially load song details into DOM
-// loadSong(songs[songIndex]);
+const characterAudio = document.getElementById('character-audio');
+const narrationAudio = document.getElementById('narration-audio');
+const voiceAudio = document.getElementById('voice-audio');
 
-// // Update song details
-// function loadSong(song) {
-//   title.innerText = song;
-//   audio.src = `music/${song}.mp3`;
-//   cover.src = `images/${song}.jpg`;
-// }
+const characterProgress = document.getElementById('character-progress');
+const narrationProgress = document.getElementById('narration-progress');
+const voiceProgress = document.getElementById('voice-progress');
 
-// // Play Song
-// function playSong() {
-//   musicContainer.classList.add('play');
-//   playBtn.querySelector('i.fas').classList.remove('fa-play');
-//   playBtn.querySelector('i.fas').classList.add('fa-pause');
+const characterProgressContainer = document.getElementById('character-progress-container');
+const narrationProgressContainer = document.getElementById('narration-progress-container');
+const voiceProgressContainer = document.getElementById('voice-progress-container');
 
-//   audio.play();
-// }
+const characterTitle = document.getElementById('character-title');
+const narrationTitle = document.getElementById('narration-title');
+const voiceTitle = document.getElementById('voice-title');
 
-// // Pause Song
-// function pauseSong() {
-//   musicContainer.classList.remove('play');
-//   playBtn.querySelector('i.fas').classList.add('fa-play');
-//   playBtn.querySelector('i.fas').classList.remove('fa-pause');
+const characterCover = document.getElementById('character-cover');
+const narrationCover = document.getElementById('narration-cover');
+const voiceCover = document.getElementById('voice-cover');
 
-//   audio.pause();
-// }
+// Keep track of song
+let characterSongIndex = 0;
+let narrationSongIndex = 1;
+let voiceSongIndex = 2;
 
-// // Prev Song
-// function prevSong() {
-//   songIndex--;
+// Song Titles: need same names on images and mp3s
+const characterSongs = ['hey', 'summer', 'ukulele'];
+const narrationSongs = ['hey', 'summer', 'ukulele'];
+const voiceSongs = ['hey', 'summer', 'ukulele'];
 
-//   if (songIndex < 0) {
-//     songIndex = songs.length - 1;
-//   }
+const characterPlayer = {
+  container: characterDemoContainer,
+  playBtn: characterPlayBtn,
+  prevBtn: characterPrevBtn,
+  nextBtn: characterNextBtn,
+  audio: characterAudio,
+  progress: characterProgress,
+  progressContainer: characterProgressContainer,
+  title: characterTitle,
+  cover: characterCover,
+  folder: 'reel1',
+  songs: characterSongs,
+  songIndex: characterSongIndex,
+};
+const narrationPlayer = {
+  container: narrationDemoContainer,
+  playBtn: narrationPlayBtn,
+  prevBtn: narrationPrevBtn,
+  nextBtn: narrationNextBtn,
+  audio: narrationAudio,
+  progress: narrationProgress,
+  progressContainer: narrationProgressContainer,
+  title: narrationTitle,
+  cover: narrationCover,
+  folder: 'reel2',
+  songs: narrationSongs,
+  songIndex: narrationSongIndex,
+};
+const voicePlayer = {
+  container: voiceDemoCharacter,
+  playBtn: voicePlayBtn,
+  prevBtn: voicePrevBtn,
+  nextBtn: voiceNextBtn,
+  audio: voiceAudio,
+  progress: voiceProgress,
+  progressContainer: voiceProgressContainer,
+  title: voiceTitle,
+  cover: voiceCover,
+  folder: 'reel3',
+  songs: voiceSongs,
+  songIndex: voiceSongIndex,
+};
 
-//   loadSong(songs[songIndex]);
-//   playSong();
-// }
+const players = [characterPlayer, narrationPlayer, voicePlayer];
 
-// // Next Song
-// function nextSong() {
-//   songIndex++;
+// Initially load song details into DOM ??forEach
+players.forEach((player) => {
+  loadSong(player, player.songs[player.songIndex]);
+});
 
-//   if (songIndex > songs.length - 1) {
-//     songIndex = 0;
-//   }
+// Update song details
+function loadSong(player, song) {
+  player.title.innerText = song;
 
-//   loadSong(songs[songIndex]);
-//   playSong();
-// }
+  player.audio.src = `music/${player.folder}/${song}.mp3`;
+
+  player.cover.src = `images/${song}.jpg`;
+}
+
+// Play Song
+function playSong(player) {
+  player.container.classList.add('play');
+
+  player.playBtn.querySelector('i.fas').classList.remove('fa-play');
+  player.playBtn.querySelector('i.fas').classList.add('fa-pause');
+
+  // audio
+  player.audio.play();
+}
+
+// Pause Song
+function pauseSong(player) {
+  console.log('hello?');
+  // musicContainer
+  player.container.classList.remove('play');
+  // playBtn
+  player.playBtn.querySelector('i.fas').classList.add('fa-play');
+  player.playBtn.querySelector('i.fas').classList.remove('fa-pause');
+
+  // audio
+  player.audio.pause();
+}
+
+// Prev Song
+function prevSong(player) {
+  console.log('back!');
+  player.songIndex--;
+
+  if (player.songIndex < 0) {
+    player.songIndex = player.songs.length - 1;
+  }
+  // player, song,
+  loadSong(player, player.songs[player.songIndex]);
+  playSong(player);
+}
+
+// Next Song
+function nextSong(player) {
+  console.log('next!');
+  player.songIndex++;
+
+  if (player.songIndex > player.songs.length - 1) {
+    player.songIndex = 0;
+  }
+
+  loadSong(player, player.songs[player.songIndex]);
+  playSong(player);
+}
 
 // // Update Progress Bar
 // function updateProgress(e) {
@@ -140,19 +226,48 @@ document.getElementById('cards').onmousemove = (e) => {
 // }
 
 // // --------------------------------------------Event Listeners
-// playBtn.addEventListener('click', () => {
-//   const isPlaying = musicContainer.classList.contains('play');
 
-//   if (isPlaying) {
-//     pauseSong();
-//   } else {
-//     playSong();
-//   }
-// });
+players.forEach((player) => {
+  player.playBtn.addEventListener('click', () => {
+    const isPlaying = player.container.classList.contains('play');
 
-// // Change song
-// prevBtn.addEventListener('click', prevSong);
-// nextBtn.addEventListener('click', nextSong);
+    if (isPlaying) {
+      pauseSong(player);
+    } else {
+      playSong(player);
+    }
+  });
+
+  // Change song
+  // prevBtn
+  player.prevBtn.addEventListener('click', () => {
+    console.log('back!');
+    player.songIndex--;
+
+    if (player.songIndex < 0) {
+      player.songIndex = player.songs.length - 1;
+    }
+    // player, song,
+    loadSong(player, player.songs[player.songIndex]);
+    playSong(player);
+  });
+
+  // nextBtn
+  player.nextBtn.addEventListener('click', () => {
+    console.log('next!');
+    player.songIndex++;
+
+    if (player.songIndex > player.songs.length - 1) {
+      player.songIndex = 0;
+    }
+
+    loadSong(player, player.songs[player.songIndex]);
+    playSong(player);
+  });
+});
+// player.prevBtn.addEventListener('click', prevSong(player));
+// nextBtn
+// player.nextBtn.addEventListener('click', nextSong(player));
 
 // // Time/song update event
 // audio.addEventListener('timeupdate', updateProgress);
