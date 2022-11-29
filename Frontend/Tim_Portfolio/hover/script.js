@@ -183,48 +183,6 @@ function pauseSong(player) {
   player.audio.pause();
 }
 
-// Prev Song
-function prevSong(player) {
-  console.log('back!');
-  player.songIndex--;
-
-  if (player.songIndex < 0) {
-    player.songIndex = player.songs.length - 1;
-  }
-  // player, song,
-  loadSong(player, player.songs[player.songIndex]);
-  playSong(player);
-}
-
-// Next Song
-function nextSong(player) {
-  console.log('next!');
-  player.songIndex++;
-
-  if (player.songIndex > player.songs.length - 1) {
-    player.songIndex = 0;
-  }
-
-  loadSong(player, player.songs[player.songIndex]);
-  playSong(player);
-}
-
-// // Update Progress Bar
-// function updateProgress(e) {
-//   const { duration, currentTime } = e.srcElement;
-//   const progressPercent = (currentTime / duration) * 100;
-//   progress.style.width = `${progressPercent}%`;
-// }
-
-// // Set progress bar
-// function setProgress(e) {
-//   const width = this.clientWidth;
-//   const clickX = e.offsetX;
-//   const duration = audio.duration;
-
-//   audio.currentTime = (clickX / width) * duration;
-// }
-
 // // --------------------------------------------Event Listeners
 
 players.forEach((player) => {
@@ -238,7 +196,6 @@ players.forEach((player) => {
     }
   });
 
-  // Change song
   // prevBtn
   player.prevBtn.addEventListener('click', () => {
     console.log('back!');
@@ -264,16 +221,34 @@ players.forEach((player) => {
     loadSong(player, player.songs[player.songIndex]);
     playSong(player);
   });
+
+  // Time/song update event
+  player.audio.addEventListener('timeupdate', (e) => {
+    // Update Progress Bar
+    const { duration, currentTime } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    player.progress.style.width = `${progressPercent}%`;
+  });
+
+  // Click on progress bar
+  player.progressContainer.addEventListener('click', (e) => {
+    const width = player.progressContainer.clientWidth;
+    const clickX = e.offsetX;
+    const duration = player.audio.duration;
+
+    player.audio.currentTime = (clickX / width) * duration;
+  });
+
+  // Song ends
+  player.audio.addEventListener('ended', () => {
+    console.log('next!');
+    player.songIndex++;
+
+    if (player.songIndex > player.songs.length - 1) {
+      player.songIndex = 0;
+    }
+
+    loadSong(player, player.songs[player.songIndex]);
+    playSong(player);
+  });
 });
-// player.prevBtn.addEventListener('click', prevSong(player));
-// nextBtn
-// player.nextBtn.addEventListener('click', nextSong(player));
-
-// // Time/song update event
-// audio.addEventListener('timeupdate', updateProgress);
-
-// // Click on progress bar
-// progressContainer.addEventListener('click', setProgress);
-
-// // Song ends
-// audio.addEventListener('ended', nextSong);
