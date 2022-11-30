@@ -419,3 +419,14 @@ position, not default position.  */
     opacity: 1;
   }
  
+  .titles {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+  }
+  .title{
+    width: 300px;
+    text-align: center;
+  }

@@ -159,7 +159,7 @@ function loadSong(player, song) {
 
   player.audio.src = `music/${player.folder}/${song}.mp3`;
 
-  player.cover.src = `images/${song}.jpg`;
+  player.cover.src = `images/${song}.png`;
 }
 
 // Play Song
