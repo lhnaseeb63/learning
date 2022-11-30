@@ -90,6 +90,9 @@ const characterCover = document.getElementById('character-cover');
 const narrationCover = document.getElementById('narration-cover');
 const voiceCover = document.getElementById('voice-cover');
 
+// To check if multiple audios are running
+let sounds = [characterAudio, narrationAudio, voiceAudio];
+
 // Keep track of song
 let characterSongIndex = 0;
 let narrationSongIndex = 1;
@@ -183,11 +186,20 @@ function pauseSong(player) {
   player.audio.pause();
 }
 
+function stopPlayers() {
+  players.forEach((player) => {
+    pauseSong(player);
+  });
+}
+
 // // --------------------------------------------Event Listeners
 
+// playBtn
 players.forEach((player) => {
   player.playBtn.addEventListener('click', () => {
     const isPlaying = player.container.classList.contains('play');
+
+    stopPlayers();
 
     if (isPlaying) {
       pauseSong(player);
