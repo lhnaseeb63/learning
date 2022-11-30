@@ -192,6 +192,14 @@ position, not default position.  */
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+  }
+
+  .card-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
   }
 
   #cards {
@@ -285,13 +293,16 @@ position, not default position.  */
 
   .img-container {
     height: 200px;
+    border-color: transparent;
   }
 
   .img-container img {
     height: 200px;
     width: 200px;
     object-fit: cover;
+    /* border: 1px solid white; */
     border-radius: 50%;
+    
 
     /* animation */
     animation: rotate 3s linear infinite;
