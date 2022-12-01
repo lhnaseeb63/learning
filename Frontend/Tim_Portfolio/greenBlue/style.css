@@ -3,10 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
 
 :root{
-  --landing-bg-color:rgb(18, 1, 29);
+  --landing-bg-color:#5cdb95;
+  --landing-bg-color-inverse:#05386b;
   --reel-card-bg-color: rgb(20,20,20);
   --reel-card-color:rgb(23,23,23);
-  --reel-card-color-purple:rgb(47, 14, 69);
+  /* --reel-card-color-purple:rgb(47, 14, 69); */
+  --reel-card-color-blueGreen:#05386b;
+  --reel-card-color-blueGreen-inverse:#5cdb95;
+  /* --reel-border-color-blueGreen:  */
 }
 
 body {
@@ -19,7 +23,6 @@ body {
     color: white;
     font-family: 'Ibarra Real Nova', serif;
     position: relative;
-    /* flex-wrap: wrap; */
 }
 
 header {
@@ -27,8 +30,7 @@ header {
     flex-direction: column;
     font-size: clamp(1rem, 1.5vw, 1.5rem);
     font-family: 'Source Sans Pro', sans-serif;
-    
-    /* margin-top: 0; */
+    background-color: var(--landing-bg-color);
     
 }
 
@@ -143,9 +145,16 @@ position, not default position.  */
     background-position: 0% -100%;
   }
 
+  #mic-img{
+    background-image: url("images/microphone-vector/vectorstock_20837742.png");
+    height: 10%;
+    /* z-index: 0; */
+    position: absolute;
+    top: -500%;
+  }
   /* adding a background image */
   #background-img {
-    background-image: url("https://images.unsplash.com/photo-1485579149621-3123dd979885?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1931&q=80");
+    background-image: url("images/microphone-vector/vectorstock_20837742.png");
     background-position: center 40%;
     background-size: 110vmax;
     height: 100%;
@@ -195,13 +204,6 @@ position, not default position.  */
     position: relative;
   }
 
-  .card-wrapper {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    align-items: center;
-  }
-
   #cards {
     display: flex;
     flex-wrap: wrap;
@@ -216,6 +218,7 @@ position, not default position.  */
   
   .card {
     background-color: rgba(255, 255, 255, 0.1);
+    /* background-color: var(--reel-card-color-blueGreen); */
     border-radius: 10px;
     cursor: pointer;
     display: flex;
@@ -246,7 +249,7 @@ position, not default position.  */
   .card::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y), 
-      rgba(255, 255, 255, 0.06),
+      rgba(142, 228, 175, 0.6),
       transparent 40%
     );
     z-index: 3;
@@ -255,14 +258,14 @@ position, not default position.  */
   .card::after {  
     background: radial-gradient(
       600px circle at var(--mouse-x) var(--mouse-y), 
-      rgba(255, 255, 255, 0.4),
+      rgba(142, 228, 175, 0.7),
       transparent 40%
     );
     z-index: 1;
   }
   
   .card > .card-content {
-    background-color: var(--reel-card-color-purple);
+    background-color: var(--reel-card-color-blueGreen);
     border-radius: inherit;
     display: flex;
     flex-direction: column;

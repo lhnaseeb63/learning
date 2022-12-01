@@ -1,0 +1,73 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color: #5cdb95;
+    --reel-card-color: #05386b;
+    --mic-color:#379683;
+    --light-accent-green:#8ee4af;
+    --font-color:#edf5e1;
+}
+
+body {
+    background-color: var(--bg-color);
+    height: 100vh;
+}
+
+header {
+    background-color: black;
+    height: 120px;
+    width: 100%;
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-wrapper {
+    padding: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+}
+
+.links {
+    display: flex;
+    padding: 5px;
+    margin: 10px;
+}
+
+.links a {
+    text-decoration: none;
+}
+
+.links .about-wrapper {
+    margin: 10px;
+    padding: 10px;
+}
+
+.links .about-wrapper a{
+    color: #05386b;
+}
+
+.links .contact-wrapper {
+    margin: 10px;
+    padding: 10px;
+}
+
+.links .contact-wrapper a {
+    color: #edf5e1;
+    background-color: #05386b;
+}
+
+main {
+    background-color: pink;
+}
