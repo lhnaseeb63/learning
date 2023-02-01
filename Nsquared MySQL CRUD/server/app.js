@@ -1,55 +1,84 @@
 const express = require('express');
 const app = express();
-const cors =  require('cors');
+const cors = require('cors');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
 const dbService = require('./dbService');
-const { response } = require('express');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended:false }));
+app.use(express.urlencoded({ extended : false }));
+
 
 // create
-app.post('/insert', (req, res)=>{
-    const { name } = req.body;
+app.post('/insert', (request, response) => {
+    const { name } = request.body;
     const db = dbService.getDbServiceInstance();
-
+    
     const result = db.insertNewName(name);
 
     result
-    .then(data => res.json({data:data}))
-    .catch(err => console.log(err))
+    .then(data => response.json({ data: data}))
+    .catch(err => console.log(err));
 });
 
 // read
-app.get('/getAll', (req, res)=>{
+app.get('/getAll', (request, response) => {
     const db = dbService.getDbServiceInstance();
-    
-    // db.getAllData() returns a promise
-    const result = db.getAllData();
 
+    const result = db.getAllData();
+    
     result
-    .then(data => res.json({ data : data }))
+    .then(data => response.json({data : data}))
+    .catch(err => console.log(err));
+})
+
+// update
+app.patch('/update', (request, response) => {
+    const { id, name } = request.body;
+    const db = dbService.getDbServiceInstance();
+
+    const result = db.updateNameById(id, name);
+    
+    result
+    .then(data => response.json({success : data}))
     .catch(err => console.log(err));
 });
 
-// update
-
 // delete
-app.delete('/delete/:id', (req, res)=>{
-    const { id } = req.params;
+app.delete('/delete/:id', (request, response) => {
+    const { id } = request.params;
     const db = dbService.getDbServiceInstance();
 
     const result = db.deleteRowById(id);
-
-    // data in this case will be true or false
+    
     result
-    .then(data => res.json({ success : data }))
+    .then(data => response.json({success : data}))
     .catch(err => console.log(err));
+});
 
+// app.get('/search/:name', (request, response) => {
+//     const { name } = request.params;
+//     const db = dbService.getDbServiceInstance();
+
+//     const result = db.searchByName(name);
+    
+//     result
+//     .then(data => response.json({data : data}))
+//     .catch(err => console.log(err));
+// })
+
+app.get('/search/:name', (request, response)=>{
+    const { name } = request.params;
+    const db = dbService.getDbServiceInstance();
+
+    
+    const result = db.searchByName(name);
+    
+    result
+    .then(data => response.json({data : data}))
+    .catch(err => console.log(err));
 })
 
-app.listen(process.env.PORT, ()=> console.log('app is running'))
+app.listen(process.env.PORT, () => console.log('app is running'));
