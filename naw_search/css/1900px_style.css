@@ -1,0 +1,237 @@
+/* Right monitor - W: 1920px, H: 937px*/
+body {
+font-size: 24px;
+background-color: white;
+}
+
+.active{
+font-size: 26px;
+}
+/* TODO: 
+attachment names too small in attachBox,
+hover links, replace svg when hovering to inverted colors,
+attach tooltip breaks to next line at '-'
+*/
+
+/*---------------------------- Navigation rewrite */
+.sidebar{
+width: 100px;
+}
+.sidebar.open{
+width: 300px;
+}
+
+.sidebar .logo-details{
+height: 80px;
+}
+
+.sidebar .logoWrapper{
+align-items: center;
+margin-bottom: 35px;
+transition: all 0.5s ease;
+}
+
+.sidebar.open .logoWrapper{
+align-items: center;
+margin-bottom: 10px;
+}
+
+.sidebar .logoWrapper .state-of-kuwait-logo{
+height: 70px;
+width: 70px;
+}
+
+.sidebar.open .logoWrapper .state-of-kuwait-logo{
+transform: translateX(0%);
+height: 90px;
+width: 90px;    
+}
+.sidebar .logo-details .logo_name{
+width: 245px;
+padding-left:10px;
+margin-left: 35px;
+}
+.sidebar .logo-details #btn{
+font-size: 32px;
+transform: translateX(10px) translateY(-32px);
+}
+
+/* -----------------------------------------------navbar links */
+.sidebar li {
+display: flex;
+justify-content: center;
+align-items: center;
+/* fixes tooltip location */
+}
+
+.sidebar.open li a i {
+position: relative;
+}
+
+.sidebar li i{
+height: 60px;
+font-size: 28px;
+line-height: 60px;
+}
+
+.sidebar li a.list-link i{
+transform: translateX(12px);
+/* when sidebar is closed centers icon */
+}
+
+.sidebar.open li a.list-link .links_name_svg {
+height: 25px;
+padding-right: 35px;
+pointer-events: auto;
+opacity: 1;
+}
+/* ------------------------------------------ link tooltips */ 
+.sidebar li .tooltip{
+font-size: 24px;
+font-weight: 400;
+
+}
+
+.sidebar li:hover .tooltip{
+top: 40%;
+}
+
+/* ------------------------------------------ profile and logout */
+.sidebar li.profile .profile-details{
+opacity: 0;
+}
+
+.sidebar li.profile {
+background-color: var(--primary-grey);
+}
+
+.sidebar .profile #log_out{
+opacity: 1;
+transform: translateY(0%) translateX(25%);
+height: 80px;
+width: 80px;
+line-height: 80px;
+
+}
+
+.sidebar.open .profile #log_out {
+width: 20px;
+height: 80px;
+
+}
+.sidebar.open li.profile{
+width: 300px;
+height: 90px;
+opacity: 1;
+background-color: var(--secondary-grey);
+}
+
+.sidebar.open li.profile .profile-details{
+opacity: 1;
+}
+
+.sidebar li.profile .name{
+font-size: 24px;
+}
+
+.sidebar li.profile .date-time-wrapper{
+font-size: 18px;
+
+}
+.sidebar li.profile .date-time-wrapper .date{
+margin-right: 10px;
+}
+
+.sidebar.open .profile .log_outWrapper{
+transform: translateY(-40px) translateX(-8px);
+}
+
+/* ----------------------------------- profile and logout tooltip*/
+.sidebar li.profile .log_outWrapper .exit-link .exit-tooltip{
+right: 73px;
+font-size: 24px;
+height: 40px;
+width: 122px;
+line-height: 40px;
+}
+
+.sidebar li.profile .log_outWrapper .exit-link:hover .exit-tooltip{
+top: 110%;
+}
+
+/* -------------------------------------------------  checkboxes */
+.recipients-wrapper{
+width: 890px;
+transform: translateX(30px);
+}
+.recipients-wrapper .recipient{
+margin: 5px 30px 15px 10px;
+}
+
+/* ---------------------------------- button bar */
+
+
+.--template-buttons .button {
+  margin: 0 10px;
+  height: 70px;
+  width: 120px;
+  box-shadow: inset 0 -6px 0 0 var(--secondary-grey-buttons-dropShadow);
+  border-radius: 12px;
+}
+
+.--template-buttons input{  
+  margin-right: 10px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.--template-buttons i{
+  font-size: 22px;
+
+}
+
+.--template-buttons .button:hover{
+  box-shadow: inset 0 -6px 0 0 rgb(0, 50, 70);
+  border-radius: 12px;
+}
+
+.--template-buttons .button:active {
+  height: 60px;
+  transform: translateY(6px);
+}
+
+/* ------------------------------------------  attachments */
+.attachmentsField .attach-buttons-wrapper .attach-button{
+    font-weight: 400;
+    border-radius: 12px;
+    height: 70px;
+    width: 170px;
+    box-shadow: inset 0 -6px 0 0 var(--secondary-grey-buttons-dropShadow);
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button label{
+    margin-right: 10px;
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button span{
+    margin-right: 10px;
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button:hover{
+    box-shadow: inset 0 -6px 0 0 rgb(0, 50, 70);
+  }
+  
+  .attachmentsField .attach-buttons-wrapper .attach-button:active {
+    box-shadow: inset 0 0 0 0 var(--secondary-grey-buttons-dropShadow);
+    transform: translateY(6px);
+  }
+
+  .attachmentsField .icons-wrapper .icon .icon-name {
+    font-size: 16px;
+    width: 80px;
+  }
+  
+
+/* max-width: x amount wide or less */
+/* min-width: x amount wide or more */
+/* can create different style sheets for each. Holy smokes */
