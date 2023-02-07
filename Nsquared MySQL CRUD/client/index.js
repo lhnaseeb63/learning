@@ -1,16 +1,86 @@
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:5000/getAll')
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => loadHTMLTable(data['data']));
     
 });
 
-const addBtn = document.getElementById('add-name-btn');
+document.querySelector('table tbody').addEventListener('click', function(event) {
+    if (event.target.className === "delete-row-btn") {
+        deleteRowById(event.target.dataset.id);
+    }
+    if (event.target.className === "edit-row-btn") {
+        handleEditRow(event.target.dataset.id);
+    }
+});
 
-// Not using React or AJS to send the data to the backend so
-// we are doing it manually. Would normally use something like 
-// ng-model to get the data where it needs to go. 
-addBtn.addEventListener('click', ()=>{
+const updateBtn = document.querySelector('#update-row-btn');
+// const searchBtn = document.querySelector('#search-btn');
+
+// searchBtn.onclick = function() {
+//     const searchValue = document.querySelector('#search-input').value;
+
+//     fetch('http://localhost:5000/search/' + searchValue)
+//     .then(response => response.json())
+//     .then(data => loadHTMLTable(data['data']));
+// }
+
+const searchBtn = document.querySelector('#search-btn');
+
+searchBtn.onclick = function() {
+    const searchValue = document.querySelector('#search-input').value;
+
+    fetch('http://localhost:5000/search/' + searchValue)
+    .then(response => response.json())
+    .then(data => loadHTMLTable(data['data']));
+}
+
+function deleteRowById(id) {
+    fetch('http://localhost:5000/delete/' + id, {
+        method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
+}
+
+function handleEditRow(id) {
+    const updateSection = document.querySelector('#update-row');
+    updateSection.hidden = false;
+    document.querySelector('#update-name-input').dataset.id = id;
+}
+
+updateBtn.onclick = function() {
+    const updateNameInput = document.querySelector('#update-name-input');
+
+
+    console.log(updateNameInput);
+
+    fetch('http://localhost:5000/update', {
+        method: 'PATCH',
+        headers: {
+            'Content-type' : 'application/json'
+        },
+        body: JSON.stringify({
+            id: updateNameInput.dataset.id,
+            name: updateNameInput.value
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    })
+}
+
+
+const addBtn = document.querySelector('#add-name-btn');
+
+addBtn.onclick = function () {
     const nameInput = document.querySelector('#name-input');
     const name = nameInput.value;
     nameInput.value = "";
@@ -24,7 +94,7 @@ addBtn.addEventListener('click', ()=>{
     })
     .then(response => response.json())
     .then(data => insertRowIntoTable(data['data']));
-})
+}
 
 function insertRowIntoTable(data) {
     console.log(data);
@@ -33,15 +103,12 @@ function insertRowIntoTable(data) {
 
     let tableHtml = "<tr>";
 
-    // getting an object back, not an array so we use for-in loop
-    for (var key in data){
-        // if the key has the property of date added
-        if(data.hasOwnProperty(key)){
-            if(key === 'dateAdded'){
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            if (key === 'dateAdded') {
                 data[key] = new Date(data[key]).toLocaleString();
             }
-
-            tableHtml += `<td>${data[key]}</td>`
+            tableHtml += `<td>${data[key]}</td>`;
         }
     }
 
@@ -79,25 +146,4 @@ function loadHTMLTable(data) {
     });
 
     table.innerHTML = tableHtml;
-}
-
-document.querySelector('table tbody').addEventListener('click', (e)=>{
-    if(e.target.className === "delete-row-btn"){
-        // create a new function and send the id of the element
-        // to the backend to delete the row from the database
-        deleteRowById(e.target.dataset.id);
-    }
-})
-
-function deleteRowById(id){
-    fetch('http://localhost:5000/delete/' + id, {
-        method: 'DELETE'
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.success){
-            location.reload();
-        }
-        console.log(data)
-    });
 }
