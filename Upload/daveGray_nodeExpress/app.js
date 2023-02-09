@@ -24,7 +24,15 @@ app.post('/upload',
         // nodejs console, not browser console 
         console.log(files);
 
-        return res.json({ status: 'logged', message: 'logged' })
+        Object.keys(files).forEach(key => {
+            const filepath = path.join(__dirname, 'files', files[key].name);
+            files[key].mv(filepath, (err) => {
+                if(err) return res.status(500).json({status:'error', message: err})
+            })
+        })
+
+        // makes a string of all the filenames the we have successfully loaded
+        return res.json({ status: 'success', message: Object.keys(files).toString() })
     }
 )
 
