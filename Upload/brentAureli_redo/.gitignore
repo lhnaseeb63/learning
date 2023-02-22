@@ -102,8 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
-
-.idea/
-archive/naw_erd_oct.mwb.beforefix
-daemon/
-tempUpload/ÙØ¸Ø§Ù ÙØ¬ÙØ³ Ø§ÙØ§ÙØ© Ø§ÙØªØ¹Ø¯ÙÙ Ø§ÙØ§Ø®ÙØ±.pdf
+.idea/.name
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations/bin_www.xml
+.idea/vcs.xml
+.idea/dataSources.xml
