@@ -1,0 +1,126 @@
+Task Tracker
+
+Angular 11:
+- Front-end JS framework
+- Single-page apps
+- Like with react and view, typically runs on the client
+- Typically used in MEAN stack fullstack apps
+- Angular 2 - 11 are the same but with updates
+- AJS (Angular 1) is completely different framework
+
+Advantages
+- More full-featured than react or view- routing, http clients, dependency injection, 
+- Steeper learning curve
+- Uses typescript by default but don't have to know it to work with Angular
+- Uses RxJS library that allow us to use observables, great for asynch programming
+- Test-friendly 
+- Not as popular in react, but used in the large enterprise business world
+
+Angular Components
+- Component driven, like any other front-end framework
+- Components are reusable
+- In our task tracker, will be building the following components: 
+--> Header
+--> Open and Close button
+--> Add Task 
+--> Display tasks 
+--> Each individual task is also its own component
+--> footer
+- Will use router to get to the about page and back to the home page
+
+Angular Services
+- Increase modularity and reusability
+- Intended to be used across components 
+- deals with one task each 
+
+Angular CLI 
+- run a local dev server
+- build out static assets for production 
+- install on command line 
+- use ng new app-name to generate app
+- when you're ready to build can run ng build which creates a dist folder that you can upload to your host
+- commands can create boiler plate
+
+Let's Learn Angular!
+- Almost everything we create goes in the src folder
+- Can add cdns and css in angular.json file
+--> can change output folder from dist to public at deployment in there as well
+- Everything in the index.html is loaded into <app-root></app-root>, like <ui-view>
+- Even if we don't know typescript, it's best to use the .ts extension instead of .js
+- main.ts is the angular entry point
+    --> import app modules (forms, http, AppModule )
+    --> Can see AppModule getting bootstrapped. 
+
+-AppModule is in the app folder (app.module.ts)
+    --> NgModule is brought in from angular/core
+    --> When you create a component (App component is root component) it is put in declarations 
+    @NgModule({
+        declarations:[
+            AppComponent,
+            OurComponentHere
+            /*Components*/
+        ],
+        imports: [
+            BrowserModule
+            /*Modules*/
+        ],
+        providers:[],
+        bootstrap: [AppComponent]
+    })
+    So our component is imported and declared in this file. 
+    When we create components in the CLI it will do this for us automatically
+    Whenever you use a module like browserModule, formsModule, httpModule, it goes in imports. 
+    Global Services go into providers
+    lastlly bootstrap which in our case we are bootstrapping the main app component
+
+- When you create a component you are generally going to have 4 files (src/app)
+    --> TS file, main class with properties, methods, specifies template and style sheet
+    --> <> HTML file, which is your template
+    --> # CSS file
+    --> spec file for testing, which we don't touch on in this course. 
+
+- With every component we are going to have the following: (src/app/app.component.ts)
+    --> importing component from the core
+    --> then declaration with 3 items
+    1. selector, the html tag you are going to use to embed your component
+    2. tempalteUrl, the html file you're using
+    3. styleUrls, can ahve more than one css here 
+    --> Then you have your class where you put any properties and methods
+    --> not using TS by default but he recommends defining your types. 
+    --> To show properties we save to the componnet (like the controller in AJS) we use string interpolation
+        --> in the app.component.html : {{ property }}
+        --> can also do simple math: {{ 1 +  5 }}
+        --> can also apply functions, ternary, any js expression: {{ property.toUpperCase() }}
+
+Styling
+- style.css is for global styling.
+- copied from his repo
+
+Creating our first component
+- ng generate component components/header
+- couple extra things:
+    --> There is a constructor in the class. Runs whenever object is initialized 
+    --> ngOnInit() is a lifecycle method. 
+        --> If you want a method to run when the component loads you would put 
+        it in here ( ex.http request ).
+    --> html, let's embed into main app component 
+    --> Use the selector from the header component declaration 
+            @Component({
+                selector: 'app-header',
+                templateUrl: './header.component.html',
+                styleUrls: ['./header.component.css']
+                })
+        in app.component.html: <app-header><app-header>
+
+Resuing components
+- want to pass in color and the text for a button
+    app.component.html:
+    <app-button color="green" text="Add"></app-button>
+- now we go into the button class and import the Input module.
+    --> then we use  @Input() text: string;
+                     @Input() color: string;
+        to initialize our properties.
+
+    button.component.html
+    <button  [ngStyle]="{'background-color':color}" class="btn">{{text}}</button>
+-Voila!
