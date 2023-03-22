@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title: string = 'Tast Tracker';
+ 
+  toggleAddTask(){
+    console.log('Toggle');
+  }
 }
