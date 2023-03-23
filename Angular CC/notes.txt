@@ -84,7 +84,7 @@ Let's Learn Angular!
     --> then declaration with 3 items
     1. selector, the html tag you are going to use to embed your component
     2. tempalteUrl, the html file you're using
-    3. styleUrls, can ahve more than one css here 
+    3. styleUrls, can have more than one css here 
     --> Then you have your class where you put any properties and methods
     --> not using TS by default but he recommends defining your types. 
     --> To show properties we save to the componnet (like the controller in AJS) we use string interpolation
@@ -113,10 +113,13 @@ Creating our first component
         in app.component.html: <app-header><app-header>
 
 Resuing components
+- ng generate component components/button
+- in header.component.html use <app-button><app-button>
 - want to pass in color and the text for a button
-    app.component.html:
+    header.component.html:
     <app-button color="green" text="Add"></app-button>
 - now we go into the button class and import the Input module.
+    -->button.component.ts
     --> then we use  @Input() text: string;
                      @Input() color: string;
         to initialize our properties.
@@ -124,3 +127,126 @@ Resuing components
     button.component.html
     <button  [ngStyle]="{'background-color':color}" class="btn">{{text}}</button>
 -Voila!
+
+Adding Events
+- using our button example
+- just add '(event)' and set the method
+    --> button.component.html
+        --> (click) = "onClick()"
+        --><button  [ngStyle]="{'background-color':color}" class="btn" (click)="onClick()">{{text}}</button>
+        --> define the onClick() method in the class 
+            --> button.component.ts
+- We don't want this button to perform just the one function. 
+We want it to do different methods, so we will use an 
+event emitter and output the event. 
+- We do this by bringing in the Output and EventEmitter modules
+    --> @Output() btnClick = new EventEmitter();
+    --> onClick() {
+            this.btnClick.emit();
+        }
+        --> Not going to do anything. It's just emitting. 
+- Then we go to the html tag for the button 
+in header.component.html and pass in the event  
+    --> <app-button color="green" text="Add" (btnClick)="toggleAddTask"></app-button>
+- Then we define toggleAddTask in our header.component.ts
+- Button is now reusable and can be embedded anywhere with a 
+custom color, custom text, and custom function when it's clicked.
+
+Starting to make tasks
+- from json server. Like a fake REST API we can create and run 
+locally
+- app/mock-tasks.ts
+    --> export an array of objects each having an id, text, date,
+    and reminder boolean. 
+- going to create an interface for a task
+    --> app/Task.ts
+    --> create inferface (like a class but we can't 
+    add or remove from the template we define)
+    --> In mock-tasks.ts we import Task.ts and define our
+    mock tasks as type: Task.
+    --> We say Task[] because we are creating an array of Task
+    objects.  
+- Now we make our task component with our 4 files
+    --> ng generate component components/tasks
+- Ultimately the tasks are going to come from our backend (JSON SERVER)
+- For now we just bring them in from that file.
+    -->import { Task } from '../../Task';
+    -->import { TASKS } from '../../mock-tasks';
+- Then in the class we define a local 'tasks' property that 
+we define as the TASKS array from mock-tasks.ts and as type
+Task from Task.ts.
+-Then in our html tag we can loop over using *ngFor
+    --> <p *ngFor = "let task of tasks">{{ task.text }}</p>
+- We don't want to just list everything in a <p></p>, 
+we want each task item in its own component. 
+    --> <app-task-item *ngFor = "let task of tasks" [task]="task"></app-task-item>
+    --> [task]="task" 
+        --> We want to pass in a property of task equal to the 
+        task from that iteration. 
+        --> Each task is sent from task.component.ts to task-item.component.ts
+    --> make new component
+        --> ng generate component components/tasks-item
+        --> import Task interface and input modules
+        --> save each task as type 'Task'
+        --> Print from tasks.html
+- For each task we want to have a delete icon so we are 
+adding angular font awesome using: 
+    --> ng add @fortawesome/angular-fontawesome@<version>
+    --> Then in the component we want to use the icon in we have to
+    import then assign the icon as a property in the class.
+        -->import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+        -->faCoffee = faCoffee;
+    --> Then we use the fa-icon tag in the component html
+        --> <fa-icon [icon]="faCoffee"></fa-icon>
+
+Creating Services
+- At this point, we know how to create components, add properties,
+create an event, and how to use directives like ngStyle.  
+- At the moment, we are directly importing the Tasks from the 
+mock-tasks.ts file into the tasks.ts file. We are now
+going to create a service that will bring it in instead and call
+the service from the class. 
+- Can create a service from the CLI. 
+    --> ng generate service services/task
+- A service is a class
+- Going to copy both imports from tasks.component.ts to 
+tasks.service.ts.
+- In the service we are going to create a function called 
+getTasks that returns an array of Tasks (the type from the interface)
+- In the componenet we import the service, then add it as an 
+argument in the constructor. 
+    --> constructor(private taskService: TaskService){}
+        --> private means we will only 'taskService' from here
+        --> 'taskService' is the local instance of the service 
+- We can then call any function in the service from
+ngInit by using 'this.taskService.fucntion()'
+    --> ngOnInit(): void {
+            this.tasks = this.taskService.getTasks()
+        }
+    --> So we assign the empty task array with whatever the service 
+    returns. 
+- Instead of this.tasks, let's make it an observable
+    --> An observable is better when we are dealing with 
+    asynchronous data, such as when you're fetching from a server
+    or just bringing a file in and setting it to that. 
+    --> need to bring in from the rxjs library the Observable 
+    and of libraries to task.service.ts
+        --> import {Observable, of} from 'rxjs';
+    --> in the function we change the return type of Task[] to
+    Observable <Task[]>
+    --> getTasks(): Observable <Task[]> {
+            const tasks = of( TASKS );
+            return tasks;
+        }
+    --> the of() is what converts it into an observable.
+    --> We get an error from the component file because we 
+    can't be using this.tasks = this.taskService.blah 
+    anymore because we are now deailing with observables. We
+    need to subscribe to the observable so you can watch it. 
+        --> ngOnInit(): void {
+                this.taskService.getTasks().subscribe((tasks)=>{
+                this.tasks = tasks;
+            });
+        --> Like with promises you can put a callback functon in the 
+        .then(), we here put a callback in .subscribe()
+        --> Same result, but it works differently behind the scenes. 
