@@ -12,4 +12,7 @@ export class TasksItemComponent {
   @Input() task: Task;
   faTimes = faTimes;
 
+  onDelete(task:Task) {
+    console.log(task);
+  }
 }

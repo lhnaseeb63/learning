@@ -250,3 +250,64 @@ ngInit by using 'this.taskService.fucntion()'
         --> Like with promises you can put a callback functon in the 
         .then(), we here put a callback in .subscribe()
         --> Same result, but it works differently behind the scenes. 
+- In real like you'll be working with a server and will be using the
+Angular HTTP client which returns Observables. 
+
+JSON Server and Observables
+- Creating a full fake REST API (not for deployment)
+- In Summary:
+    - Create a db.json file in root
+        - Everything needs to be in JSON format
+    - Can add different collections (in our case tasks)
+        - essentially our database
+    - then we run a script that will run the JSON server
+    and watch the db.json file 
+    - Can make get, put, post, patch, and delete requests
+- Getting started Now
+-npm install json-server
+    - not running it globally but will run a script to get it started
+    - in package.json go to "scripts" :{
+        "server": "json-server --watch db.json --port 5000"
+    }
+- With db.json created can run the server
+    --> npm run server
+    --> localhost:5000/tasks
+- Now with a server and db we need an api to make requests
+- In task.service.ts    
+    --> import { HttpClient, HttpHeaders } from '@angular/common/http';
+- Have to add the HttpClientModule as a module
+- app.module.ts
+    --> import { HttpClientModule } from '@angular/common/http';
+    --> keeping modules on top and componenets below. Cleaner. 
+    --> Go down to imports and add the HttpClientModule
+    --> Any file that we need to import needs to be declared in this 
+    file, essentially before it can be used through the rest of the 
+    program.
+- Back to task.service.ts
+    - adding a property for the URL that we are hitting
+    - Just like when we had to add our Task service as a parameter in 
+    the constructor of the task component, we  have to add the
+    HTTP stuff as a parameter to our task service. 
+        --> constructor(private http:HttpClient) { }
+        --> now we can use this.http.methodWeWant
+    --> getTasks(): Observable <Task[]> {
+            return this.http.get<Task[]>(this.apiURL);
+        }
+    - now being brough in from an http request rather than a local 
+    file. 
+    - assigning the observable to type Task
+
+Learning to Delete Tasks
+- First we need to create an event when the user clicks the 'x' button
+- in tasks-item.component.html
+    --> (click)="onDelete(task)"
+    --> passes in the task
+- in tasks-item.component.ts
+    -->  onDelete(task:Task) {
+            console.log(task);
+        }
+- Want to have the delete functionality written out in task.component.ts 
+as the parent of tasks-items. 
+    --> remember if we look at tasks.component.html we have the 
+    tasks-item embedded there. 
+
