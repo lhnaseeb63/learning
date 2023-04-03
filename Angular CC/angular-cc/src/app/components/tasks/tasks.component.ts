@@ -21,4 +21,10 @@ export class TasksComponent {
     });
   }
 
+  deleteTask(task: Task) {
+    this.taskService.deleteTask(task).subscribe((t)=>{
+      this.tasks = this.tasks.filter(t => t.id !== task.id)
+    });
+  }
+
 }
