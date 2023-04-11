@@ -287,9 +287,9 @@ JSON Server and Observables
     - adding a property for the URL that we are hitting
     - Just like when we had to add our Task service as a parameter in 
     the constructor of the task component, we  have to add the
-    HTTP stuff as a parameter to our task service. 
+    HTTP module as a parameter to our task service. 
         --> constructor(private http:HttpClient) { }
-        --> now we can use this.http.methodWeWant
+        --> now we can use this.http.methodWeWant()
     --> getTasks(): Observable <Task[]> {
             return this.http.get<Task[]>(this.apiURL);
         }
@@ -298,6 +298,7 @@ JSON Server and Observables
     - assigning the observable to type Task
 
 Learning to Delete Tasks
+- Want to create service method to delete a task 
 - First we need to create an event when the user clicks the 'x' button
 - in tasks-item.component.html
     --> (click)="onDelete(task)"
@@ -306,8 +307,234 @@ Learning to Delete Tasks
     -->  onDelete(task:Task) {
             console.log(task);
         }
+- All the functions that have to call the service to interact with our 
+server we want them in the tasks component as task-items is embedded there. 
 - Want to have the delete functionality written out in task.component.ts 
 as the parent of tasks-items. 
     --> remember if we look at tasks.component.html we have the 
     tasks-item embedded there. 
+    --> going to emit an event with onDelete so we need to import
+    Output and EventEmitter. Just like what we did with the button. 
+    --> In the button component declaration we made a function that runs 
+    after the button is clicked. This function fires off the element's 
+    event. So the Add button once clicked atm clgs 'Toggle' with the
+    component's onClick function which triggers the Add btn's toggleEvent 
+    which is passed a parameter to the event in the button component tag 
+    in the header html file. 
+    --> So onDelete will emit an event called onDeleteTask
+    --> @Output() onDeleteTask:EventEmitter<Task> = new EventEmitter;
+    --> onDelete(task:Task) {
+            this.onDeleteTask.emit(task);
+        }
+    --> Then where the task-item tag is embedded in the task component 
+    html, we pass in the callback for the event we created. 
+- Now we need a service to interact with the server and db
+- task.service.ts
+    -->   deleteTask(task: Task): Observable<Task> {
+            const url = `${this.apiURL}/${task.id}`;
+            return this.http.delete<Task>(url);
+        }
+    --> Need task id in url
+    --> Returns an observable
+- tasks.componenet.ts
+    -->   deleteTask(task: Task) {
+            this.taskService.deleteTask(task).subscribe((t)=>{
+            this.tasks = this.tasks.filter(t => t.id !== task.id)
+            });
+        }
+    --> Calls the service to delete and it returns an observable that 
+    we subscribe to
+    --> remember it's like .then()
+    --> In the callback we want to filter the deleted task from the ui
+    --> it works!
+
+Reminders
+- Want to double click on the task and toggle reminder boolean
+- add a green boprder if there is a reminder set. 
+    --> conditional class, so we use ng-class
+    --> tasks-item.html
+    --> <div [ngClass]="{reminder: task.reminder}" class="task">
+        --> set the class 'reminder' if task.reminder returns true
+- So just like in our delete task, we are going to do the following:
+    1. in our task-item html, we define a functrion that responds to the 
+    doubleclick event
+    2. in our task-item.ts, we define that function to call an event
+    and emit. 
+    3. We declare the event in task-item.ts
+    4. In the parent of task-item html (which is task.html) we 
+    take the event and define a callback. 
+    5. We define that callback in task.ts , we write out the functionality. 
+    In this case it toggles the boolean then calls the service to 
+    update the db. 
+    6. In task.service.ts we define the service that will make the call to 
+    the server and update the db. It will be a put request because we are
+    making an update. 
+        --> define the url
+        --> pass in url and task. Since we are passing in info want to pass
+        headers with the content type. We defined httpOptions at the top 
+        of the file (because we will also be using it in our post request)
+        and pass it in as our third argument. 
+
+Add Tasks
+- Can now list, toggle, and delete tasks
+- Generate a new component
+    --> ng generate component components/add-task
+- embed add-task to tasks because tasks is going to be connected to a 
+route later on and we want the add form and the actual tasks to show.
+- tasks.html
+    --> <app-add-task></app-add-task>
+- add-task.html
+    --> Going to be adding a form 
+    --> Form made and stylized
+    --> In your class you are going to want to add a property for each
+    field on the form. 
+- add-task.ts
+    --> want to bind each property with ngModel but that is already part
+    of the forms module so we will go to app.module.ts and add it. 
+    --> import { FormsModule } from '@angular/forms';
+    --> Then we put FormsModule under imports
+- add-task.html
+    --> Two way data binding so we use [()] 
+        --> [] for input
+        --> () for output (like events)
+        --> it's two-way data binding so we use both
+        --> [(ngModel)]="whateverWeAreBinding" 
+        --> Have to have a name attribute with the same value
+    --> Now we need a submit
+    --> <form (ngSubmit)="onSubmit()">
+- add-task.ts
+    --> onSubmit()
+    --> want to add some basic validation
+    --> make sure the text is there
+    --> Create newTask object to store the inputs 
+     --> clear the form once we hit submit
+    --> Want to submit object to server through service, but
+    we don't do that from add-task, we will do that through task.ts
+        --> So like before, we will have to emit an event. 
+        --> Go to parent component Task.html and add the event and a callback
+        --> <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+            --> Dont have access to task like below because we aren't part 
+            of the ngFor, so we use $event as an argument and it will
+            give us access to task. 
+            --> I think $event is passed as an argument because it refers
+            to whatever is passed into the event itself as an argument. 
+            In this case the newTask object is passed in when the event
+            is fired off 
+        --> Now we want to update the db with our service like we did before,
+        so off to task-service.ts!
+    --> task-service.ts
+        --> create the addTask function
+        --> use the http client to post to the server. 
+        --> pass in the url, the task, and the httpOptions object because
+        we are passing in a json object.
+    --> tasks.ts    
+        --> call the service then push the new task onto the local task
+        array that the html loops through to log onto the screen. 
+
+Add button functionality
+- Going to create a UI Service to show add task and toggle the button
+functionality and styling. 
+- we create a new service 
+- import Observable and Subject modules
+- We create a boolean that determines whether or not the add task 
+panel is showing and we set it to false initially. It is a private variable
+because we only want to be able to change it through the service. 
+- Then we create a subject. A subject is essentially a variable or such that
+multiple observers throughout the program will recieve notifications once 
+there are any changes to the subject. In our case we want observers to note
+when there's been a change to our boolean. 
+- We create a function that toggles the boolean, then pass the altered
+boolean to the created subject to notify the observers of the change. 
+- Then we create a function onToggle that fires off whenever we
+toggle that returns the subject as an observable.
+- So whenever we click the add button it fires off toggleAddTask() and 
+subscible to onToggle. 
+- Going to bring in our UI service to the header component. 
+    --> Button component has a function that fires off an event in the header
+    which passes in a callback that is defined in the header.ts, so we will
+    have the callback call the service from there. 
+    --> Brought in our service and brought in module 'Subscription'
+    --> Created a local showAddTask boolean
+    --> To use a service we have to add it to the constructor
+    --> toggleAddTask(){
+            this.uiService.toggleAddTask();
+        }
+    --> Now the toggleAddTask function calls the service that will Toggle
+    the boolean and pass the value to the subject to notify observers. 
+    --> Now we need to handle what we want to have happen when we click
+    the button. 
+- Whenever the button is clicked, toggleAddTask() is called and toggles the 
+boolean. 
+- onToggle() returns the subject as an observable
+- Whenever we want to do something in response to toggleAddTask(),
+we subscribe to onToggle.
+- In header.ts, we have a local showAddTask boolean that we want to change 
+in reponse to the toggle so we can change the color and text of the button. 
+    --> header.html
+        -->  color="{{showAddTask ? 'red': 'green'}}"
+        --> text="{{showAddTask ? 'Close': 'Add'}}" 
+    --> To watch when the boolean changes in the service we use the 
+    subscription module in the constructor
+    --> this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => this.showAddTask = value)
+        --> subscribing to the boolean to change the local value in the header
+- Now we want to use the boolean  in the service to change the addTask 
+component in a similar way. 
+    --> imported the subscription module and the uiservice
+    --> made local boolean and subscription instance
+    --> used uixervice in the constructor
+    --> copied code from header.ts to subscribe to the boolean in 
+    the uiservice
+    --> in the html used *ngIf="showAddTask" to make the form disappear 
+    and reappear based on the value of the boolean. 
+
+The Router
+- First we import the proper modules:
+    --> import { RouterModule, Routes } from '@angular/router';
+- Then we create our routes. We will create an array of route objects. 
+    --> {path:'', component: TasksComponent}
+        --> '' is the index/homepage and we are connecting it to the 
+        TasksComponent, which has both the add form and the list of
+        tasks
+- Added route module to imports 
+    --> RouterModule.forRoot(appRoutes, {enableTracing:true})
+        --> the second argument is to help with debugging routes. 
+- In order for the route you are working on to show, we go to the
+main app component's html and instead of, say, <app-tasks>, we
+put <router-outlet>
+    --> We would see the same think because the tasks component is our 
+    homepage
+- Let's create another component to better illustrate showing routes
+    --> ng generate component components/about 
+    --> Wrote simple about text
+    --> added link to Go back   
+        --> we dont use href with links. We instead use routerLink.
+- Add about component to router
+    --> const appRoutes: Routes = [
+        {path:'', component: TasksComponent},
+        {path:'about', component: AboutComponent}
+        ]
+- If we go to http://localhost:4200/about it works!
+- Let's make a footer that links to the about page. 
+    --> ng generate component components/footer
+    --> Make simple footer html and css
+    --> Link to the about page with routerLink
+    --> embed the footer component in the app.html
+    --> Voila! Switching between routes. 
+- Let's remove add button from header when on the about page. 
+    --> Limit the button to the homepage
+    --> to do that we bring the router into the header.ts to know
+    what page we are on.
+    --> Then we add it to the constructor as an argument. 
+        -->  constructor(private uiService: UiService, private router:Router)
+    --> Now we have access to the methods and properties of Router. 
+        --> There is a property that gives us the url. 
+        --> We write a function that compares a passed url and the
+        current url and returns true or false.
+        --> In the html of the header and the button we use:
+        *ngIf="hasRoute('/')"
+        --> Tada! 
+
+
 
