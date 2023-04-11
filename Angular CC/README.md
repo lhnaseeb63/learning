@@ -34,7 +34,8 @@ I am excited to play around with this more.
 - npm install -g @angular/cli
 - download the folder
 - cd into 'angular-cc'
-- run ng run server in the terminal 
+- run 'npm start' in a terminal
+- run ng run server in another terminal 
 - open 'http://localhost:4200/' in your browser 
 
 <h3>Include Credits</h3>
