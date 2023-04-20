@@ -1,0 +1,19 @@
+Going to:
+- Write some front end
+- NodeJS server tied in with MySQL dB
+- how to host site on google cloud 
+
+- How to create routing between components
+- Going to have a general listings page then a MY listings page
+- go to app.routing.ts 
+    --> const routes: Routes = [];
+    --> Need to add an object for every route that our app needs
+        --> path: 'url you want component to be displayed at'
+        --> component: which component you want to have displayed at that route
+            --> Have to import it into the file
+        --> pathMatch: 'full'
+            --> we are going to have routes where you pass in :id in the path. 
+            the 'full' is to prevent the page from being redirected to the 
+            page without a path. 
+            -->  { path: 'listings', component:ListingsPageComponent, pathMatch: 'full' },
+                 { path: 'listings/:id', component:ListingDetailPageComponent },
