@@ -110,3 +110,5 @@ dist
 .idea/runConfigurations/bin_www.xml
 .idea/vcs.xml
 .idea/dataSources.xml
+
+.fake

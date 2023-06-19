@@ -1,0 +1,31 @@
+I have been put on the MOHE Website project. It uses asp and I am not sure 
+if you use it purely with c# or if you can use it with JS. I'm not at 
+all sure how to go about reading this code so I thought I would learn
+the framework and then give it a gander so I have some idea how to 
+navigate this. 
+
+I am following along with Traversy's 
+"Build a C# .NET Application in 60 Minutes" course:
+https://www.youtube.com/watch?v=GcFJjpMFJvI&t=2s
+
+What is C#?
+- General purpose OO language
+- Created by uSoft
+- part of the many languages used with .NET
+- relatively easy to learn
+
+What is .NET?
+- Framework for building Windows apps and web apps
+- Not limited to C#
+- Others include VB.net, F#, C++/CLI, etc. 
+- Consists of CLr (Common Language Runtime) & Class Library 
+
+What is CLR?
+- Common Language Runtime
+- Virtual Machine component
+- Manages execution of programs
+     --> provides an environment for our applications to Run
+- JIT (Just In Time) converts compiled code into machine instructions
+- Also includes things like memory and thread management
+- All .NET programs are executed by CLR
+
