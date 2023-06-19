@@ -1,9 +1,13 @@
+// number of columns in the grid
 export const GRID_SIZE = 20;
+// size of the squares in pixels
 export const CELL_SIZE = 20;
 export const DIRECTIONS = {
   ArrowLeft: {
+    // keyboard keycode
     code: 37,
     movement: -1,
+    // pacman starts to the right, so if we go left we have to flip him
     rotation: 180
   },
   ArrowUp: {
