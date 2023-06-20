@@ -1,7 +1,7 @@
 import { LEVEL, OBJECT_TYPE } from './setup';
 
 // DOM Elements
-const gameGride = document.querySelector('#game');
+const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
 
@@ -29,5 +29,5 @@ function gameLoop(pacman, ghosts){
 }
 
 function startGame(){
-    
+
 }
