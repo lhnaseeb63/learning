@@ -26,7 +26,7 @@ class GameBoard {
         // creating the grid in the DOM
         this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px)`;
 
-        level.array.forEach(square => {
+        level.forEach(square => {
             const div = document.createElement('div');
             // adding 2 classes to each div. Square and the approriate class for each square type. 
             div.classList.add('square', CLASS_LIST[square]);
@@ -75,3 +75,5 @@ class GameBoard {
     }
 
 } // Gameboard class
+
+export default GameBoard;
