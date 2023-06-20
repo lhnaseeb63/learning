@@ -20,3 +20,8 @@
 <h3>How to Use the Project</h3>
 <h3>Include Credits</h3>
 <h3>Include Tests</h3>
+
+going to use parcel to give us a server
+parcel will bundle our modules into a js file to use in the browser
+npm start for dev server 
+
