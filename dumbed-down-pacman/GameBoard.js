@@ -58,8 +58,20 @@ class GameBoard {
     // to rotate pacman
     rotateDiv(pos, deg){
         this.grid[pos].style.transform = `rotate(${deg}deg)`;
-        
+    }
 
+    /*
+        Static methods can be called without instantiating a class. 
+        By calling the function below, it instantiates an instance of the class.
+        Can instantiate in the index.js file but we would also have to call the 
+        createGrid method there. 
+        Just cleaner to call the one method to do the two steps for us. 
+    */
+    static createGameBoard(DOMGrid, level){
+        // create instance of class
+        const board = new this(DOMGrid);
+        board.createGrid(level);
+        return board;
     }
 
 } // Gameboard class
