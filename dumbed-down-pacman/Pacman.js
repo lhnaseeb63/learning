@@ -32,7 +32,8 @@ class Pacman {
 
         // if we collide with a wall or try to enter the ghost lair do nothing
         if(
-            objectExist(nextMovePos, OBJECT_TYPE.WALL) || objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)
+            objectExist(nextMovePos, OBJECT_TYPE.WALL) 
+            || objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)
         ){
             nextMovePos = this.pos;
         }
@@ -53,7 +54,6 @@ class Pacman {
     }
 
     handleKeyInput(e, objectExist){
-        console.log(e);
         let dir;
 
         // arrowpad keys
@@ -70,7 +70,8 @@ class Pacman {
             We want pacman to continue to move and only change direction at an intersection in the grid. 
         */
         const nextMovePos = this.pos + dir.movement;
-        if(objectExist(nextMovePos, OBJECT_TYPE.WALL)) return;
+        if(objectExist(nextMovePos, OBJECT_TYPE.WALL) 
+        || objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)) return;
         this.dir = dir;
     }
 

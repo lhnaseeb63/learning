@@ -65,6 +65,29 @@ class GameBoard {
         this.grid[pos].style.transform = `rotate(${deg}deg)`;
     }
 
+    moveCharacter(character){
+        if (character.shouldMove()){
+            const { nextMovePos, direction } = character.getNextMove(
+                this.objectExist
+            );
+            const { classesToRemove, classesToAdd } = character.makeMove();
+
+            // should only rotate if next move is valid at an intersection
+            if (character.rotation && nextMovePos !== character.pos){ 
+                this.rotateDiv( nextMovePos, character.dir.rotation);
+                // reset position of previous div, otherwise ghosts would rotate
+                // when they reach that div
+                this.rotateDiv(character.pos, 0);
+            } //only applicable to pacman
+
+            // move by removing and adding classes
+            this.removeObject(character.pos, classesToRemove);
+            this.addObject(nextMovePos, classesToAdd);
+
+            character.setNewPos(nextMovePos, direction);
+        }
+    }
+
     /*
         Static methods can be called without instantiating a class. 
         By calling the function below, it instantiates an instance of the class.
