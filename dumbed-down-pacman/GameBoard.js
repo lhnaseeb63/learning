@@ -50,8 +50,13 @@ class GameBoard {
         this.grid[pos].classList.remove(...objects);
     }
 
-    // see if class exists on the grid at specified position 
-    objectExist(pos, object){
+    /* see if class exists on the grid at specified position 
+        Uses the 'this' keyword, so we need to bind it to make
+        sure that it is setting the variable on the 
+        GameBoard class instance (gameBoard). 
+        Or we can turn the function into an arrow function.
+    */
+    objectExist = (pos, object) => {
         return this.grid[pos].classList.contains(object);
     }
 

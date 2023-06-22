@@ -53,6 +53,7 @@ class Pacman {
     }
 
     handleKeyInput(e, objectExist){
+        console.log(e);
         let dir;
 
         // arrowpad keys
