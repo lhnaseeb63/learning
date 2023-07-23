@@ -19,4 +19,6 @@ export function randomMovement(position, direction, objectExist){
         // Set the next position
         nextMovePos = position + dir.movement;
     }
+
+    return { nextMovePos,  direction:dir };
 }

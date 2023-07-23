@@ -1,7 +1,9 @@
 import { LEVEL, OBJECT_TYPE } from './setup';
+import { randomMovement } from './ghostMoves';
 // classes
 import GameBoard from './GameBoard';
 import Pacman from './Pacman';
+import Ghost from './Ghost';
 
 // DOM Elements
 const gameGrid = document.querySelector('#game');
@@ -44,6 +46,9 @@ function startGame(){
     const pacman = new Pacman(30, 287);
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
   
+    // document.addEventListener('keydown', (e) =>{ 
+    //     pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
+    // });
     document.addEventListener('keydown', (e) =>{ 
         pacman.handleKeyInput(e, gameBoard.objectExist)
     });
