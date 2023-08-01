@@ -1,4 +1,4 @@
-import { GRID_SIZE, CELL_SIZE, OBJECT_TYPE, CLASS_LIST } from "./setup";
+import { GRID_SIZE, CELL_SIZE, OBJECT_TYPE, CLASS_LIST } from './setup';
 
 class GameBoard {
     constructor(DOMGrid) {
@@ -22,7 +22,8 @@ class GameBoard {
         // wiping everything
         this.dotCount = 0;
         this.grid = [];
-        this.DOMGrid.innerHTML = '';
+        this.DOMGrid.innerHTML = ''; 
+
         // creating the grid in the DOM
         this.DOMGrid.style.cssText = `grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px)`;
 
@@ -40,6 +41,7 @@ class GameBoard {
             }
 
         });
+       
     } // createGrid function 
 
     // takes in position and classes (can feed as array) we want to add to the grid
@@ -56,7 +58,7 @@ class GameBoard {
         GameBoard class instance (gameBoard). 
         Or we can turn the function into an arrow function.
     */
-    objectExist = (pos, object) => {
+    objectExist (pos, object) {
         return this.grid[pos].classList.contains(object);
     }
 
@@ -68,7 +70,7 @@ class GameBoard {
     moveCharacter(character){
         if (character.shouldMove()){
             const { nextMovePos, direction } = character.getNextMove(
-                this.objectExist
+                this.objectExist.bind(this)
                 // this.objectExist.bind(this)
             );
             const { classesToRemove, classesToAdd } = character.makeMove();
@@ -100,6 +102,7 @@ class GameBoard {
         // create instance of class
         const board = new this(DOMGrid);
         board.createGrid(level);
+
         return board;
     }
 
