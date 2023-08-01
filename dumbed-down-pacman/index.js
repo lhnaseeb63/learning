@@ -12,7 +12,7 @@ const scoreTable = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
 
 // Game Constants
-const POWER_PILL_TIME = 10000; // ms
+const POWER_PILL_TIME = 10000; // ms, 10seconds for powerpill powerup
 const GLOBAL_SPEED = 80; // ms, for the game loop
 const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL);
 
@@ -66,6 +66,44 @@ function gameLoop(pacman, ghosts){
      // 3. Move ghosts
   ghosts.forEach((ghost) => gameBoard.moveCharacter(ghost));
   checkCollision(pacman, ghosts);
+
+    //   Check is pacman eats a dot
+    if(gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)){
+        gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
+        gameBoard.dotCount--;
+        score += 10;
+    }
+
+    // Check if pacman eats a power pill
+    if(gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)){
+        gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
+        
+        pacman.powerPill = true;
+        score += 50;
+
+        // clear out the old power pill timer and set a new one.
+        // timers dont stack
+        clearTimeout(powerPillTimer);
+        powerPillTimer = setTimeout( () => (pacman.powerPill = false),
+        POWER_PILL_TIME
+        );
+    }
+
+    // if powerPill, change ghosts to scared mode
+    // only want to run this once, not every iteration of game loop
+    if(pacman.powerPill !== powerPillActive){
+        powerPillActive = pacman.powerPill;
+        ghosts.forEach(ghost => ghost.isScared = pacman.powerPill);
+    }
+
+    // check if all dots have been eaten
+    if (gameBoard.dotCount === 0){
+        gameWin = true;
+        gameOver(pacman, ghosts);
+    }
+
+    // show score
+    scoreTable.innerHTML = score;
 }
 
 function startGame(){
