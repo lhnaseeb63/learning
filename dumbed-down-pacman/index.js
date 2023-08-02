@@ -1,12 +1,19 @@
 import { LEVEL, OBJECT_TYPE } from './setup';
 import { randomMovement } from './ghostmoves';
+
 // classes
 import GameBoard from './GameBoard';
 import Pacman from './Pacman';
 import Ghost from './Ghost';
 
-// DOM Elements
+// Sounds
+import soundDot from './assets/sounds/munch.wav';
+import soundPill from './assets/sounds/pill.wav';
+import soundGameStart from './assets/sounds/game_start.wav';
+import soundGameOver from './assets/sounds/death.wav';
+import soundGhost from './assets/sounds/eat_ghost.wav';
 
+// DOM Elements
 const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
@@ -23,7 +30,14 @@ let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
 
+// Audio
+function playAudio(audio){
+    const soundEffect = new Audio(audio);
+    soundEffect.play();
+}
+
 function gameOver(pacman, grid) {
+    playAudio(soundGameOver);
     document.removeEventListener('keydown', e => 
         pacman.handleKeyInput(e, gameBoard.objectExist)
     );
@@ -41,6 +55,7 @@ function checkCollision(pacman, ghosts){
 
     if(collidedGhost){
         if(pacman.powerPill){
+            playAudio(soundGhost);
             gameBoard.removeObject(collidedGhost.pos, [
                 OBJECT_TYPE.GHOST,
                 OBJECT_TYPE.SCARED,
@@ -69,6 +84,7 @@ function gameLoop(pacman, ghosts){
 
     //   Check is pacman eats a dot
     if(gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)){
+        playAudio(soundDot);
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
         gameBoard.dotCount--;
         score += 10;
@@ -76,6 +92,7 @@ function gameLoop(pacman, ghosts){
 
     // Check if pacman eats a power pill
     if(gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)){
+        playAudio(soundPill);
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
         
         pacman.powerPill = true;
@@ -107,6 +124,7 @@ function gameLoop(pacman, ghosts){
 }
 
 function startGame(){
+    playAudio(soundGameStart);
     gameWin = false;
     powerPillActive = false;
     score = 0;

@@ -5,7 +5,7 @@
 78C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\source-map-js133316421728763063 1
 90C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\lib\index.js133316422030027032 0
 89C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\abortcontroller-polyfill133316421719898929 1
-56C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist133353537790641204 1
+56C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist133354403921077158 1
 102C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\.bin\node-gyp-build-optional-packages133316422200089360 0
 111C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@babel\helper-hoist-variables\lib\index.js.map133316424005991460 0
 85C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\posthtml-render\dist133316421641595071 1
@@ -48,7 +48,7 @@
 115C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\esm\_class_private_field_loose_key.js133316421969161778 0
 129C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@parcel\node-resolver-core\parcel-resolver.linux-arm64-musl.node133316421919264830 0
 110C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\csso\node_modules\css-tree\lib\utils\names.js133316422024958630 0
-60C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\index.js133353537789561407 0
+60C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\index.js133353614656931999 0
 90C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@babel\traverse\README.md133316424000436206 0
 85C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\safe-buffer\index.js133316421554642831 0
 99C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\xxhash-wasm\cjs\xxhash-wasm.js.map133316421641769253 0
@@ -66,7 +66,7 @@
 83C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\tslib\tslib.es6.js133316421598480555 0
 114C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\caniuse-lite\data\features\css-scroll-behavior.js133316422031251018 0
 84C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\resolve\SECURITY.md133316425280709808 0
-64C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\GameBoard.js133352663251201919 0
+64C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\GameBoard.js133353599603346736 0
 117C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\css-select\lib\esm\pseudo-selectors\filters.d.ts.map133316421831605200 0
 82C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\path-type\license133316421585651483 0
 102C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@jridgewell\sourcemap-codec\README.md133316424008546850 0
@@ -131,7 +131,7 @@
 113C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\csso\node_modules\mdn-data\css\types.schema.json133316421783051226 0
 85C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\electron-to-chromium133316421719908774 1
 92C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\lmdb\src\ordered-binary.cpp133316421934168555 0
-61C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\Pacman.js133352663203886442 0
+61C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\Pacman.js133353597447790923 0
 85C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\msgpackr\unpack.d.ts133316421876248845 0
 87C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\escalade\dist\index.js133316421556114487 0
 70C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@lmdb133316425285584027 1
@@ -3088,7 +3088,7 @@
 96C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@parcel\core\test\test-utils.js133316422014891170 0
 89C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\function-bind\.jscs.json133316425267308096 0
 81C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\dotenv\config.js133316421571771542 0
-75C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3a01df49.css133353537021309172 0
+75C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3a01df49.css133353614176525123 0
 96C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\function-bind\implementation.js133316425265489717 0
 99C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@babel\traverse\lib\path\family.js133316424034944548 0
 95C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@parcel\core\lib\assetUtils.js133316421812640573 0
@@ -4334,7 +4334,7 @@
 97C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\core-js-compat\targets-parser.js133316425268224523 0
 96C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\convert-source-map\package.json133316423999149549 0
 93C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\convert-source-map\README.md133316424001074778 0
-78C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3d214d75.js.map133353537790631223 0
+78C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3d214d75.js.map133354403921067176 0
 93C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\commander\typings\index.d.ts133316421676941825 0
 129C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@parcel\optimizer-svgo\node_modules\css-select\lib\attributes.js133316421589185168 0
 88C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\color-name\package.json133316421547728041 0
@@ -5342,7 +5342,7 @@
 101C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\lib\_new_arrow_check.js133316422020929245 0
 103C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\lib\_non_iterable_rest.js133316422021050970 0
 105C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\lib\_non_iterable_spread.js133316422021241230 0
-67C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.html133353537021208499 0
+67C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.html133353614177402778 0
 91C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@parcel\core\src\worker.js133316422022129216 0
 111C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\lib\_object_without_properties.js133316422022119185 0
 113C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\@swc\helpers\lib\_possible_constructor_return.js133316422022179310 0
@@ -7237,9 +7237,9 @@
 80C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\.bin\parcel.ps1133316422200099330 0
 81C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\.bin\resolve.cmd133316425285534166 0
 81C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\node_modules\.bin\resolve.ps1133316425285534166 0
-80C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\background.de7f9990.jpg133353537021047002 0
-79C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3a01df49.css.map133353537021559054 0
-74C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3d214d75.js133353537790611305 0
+80C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\background.de7f9990.jpg133353614176535099 0
+79C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3a01df49.css.map133353614176565023 0
+74C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.3d214d75.js133354403921007317 0
 74C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.c36f364e.js133316429472319552 0
 78C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\index.c36f364e.js.map133316429472339217 0
 75C:\Users\lhamed\Desktop\learning\dumbed-down-pacman\dist\munch.c68cc271.wav133352662511719284 0
