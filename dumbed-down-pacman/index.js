@@ -7,11 +7,11 @@ import Pacman from './Pacman';
 import Ghost from './Ghost';
 
 // Sounds
-import soundDot from './assets/sounds/munch.wav';
-import soundPill from './assets/sounds/pill.wav';
-import soundGameStart from './assets/sounds/game_start.wav';
-import soundGameOver from './assets/sounds/death.wav';
-import soundGhost from './assets/sounds/eat_ghost.wav';
+import soundDot from 'url:./assets/sounds/munch.wav';
+import soundPill from 'url:./assets/sounds/pill.wav';
+import soundGameStart from 'url:./assets/sounds/game_start.wav';
+import soundGameOver from 'url:./assets/sounds/death.wav';
+import soundGhost from 'url:./assets/sounds/eat_ghost.wav';
 
 // DOM Elements
 const gameGrid = document.querySelector('#game');
@@ -33,7 +33,7 @@ let powerPillTimer = null;
 // Audio
 function playAudio(audio){
     const soundEffect = new Audio(audio);
-    soundEffect.play();
+    audio.play(soundEffect);
 }
 
 function gameOver(pacman, grid) {
